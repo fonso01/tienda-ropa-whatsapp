@@ -19,4 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 4. Inicializar Configuración de WhatsApp
   if (typeof initSettingsModal === 'function') initSettingsModal();
+
+  // 5. Inicializar Panel de la Clienta (Mi Espacio)
+  if (typeof initClientPanel === 'function') initClientPanel();
 });

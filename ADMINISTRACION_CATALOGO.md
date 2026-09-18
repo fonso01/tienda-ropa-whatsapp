@@ -74,13 +74,22 @@ Actualmente, todas las prendas residen en el archivo [`js/data.js`](file:///c:/U
 
 ---
 
-### Opción 2: Panel Visual de Administrador (`admin.html`) con Clave PIN
-Podemos crear una página privada (por ejemplo, `admin.html`) a la que solo tú tengas acceso mediante una contraseña o código PIN:
+### Opción 2: Panel Visual de Administrador (`admin.html`) con Clave PIN ✅ (¡Ya Implementado!)
+Ya está disponible la página privada [`admin.html`](file:///c:/Users/E7450%20i7%2016GB%20RAM/Documents/tienda/admin.html) protegida por PIN de seguridad (código por defecto: **`1234`**):
 
-**¿Qué incluye esta pantalla?**
-1. **Formulario Visual**: Campos para escribir el nombre, elegir categoría en una lista desplegable, escribir el precio en RD$, ingresar links de fotos, y seleccionar tallas y colores mediante casillas de verificación.
-2. **Tabla de Artículos Activos**: Ver todas las prendas con botones de **[Editar]**, **[Pausar/Ocultar]** y **[Eliminar]**.
-3. **Generador de Catálogo con 1 Clic**: Un botón que genera y descarga el archivo `data.js` actualizado o guarda los cambios en el almacenamiento de tu navegador.
+**Características disponibles en `admin.html`:**
+1. **Acceso Seguro por PIN**: Pantalla de bloqueo con código PIN de 4 dígitos (modificable desde la pestaña de Ajustes).
+2. **Métricas en Vivo**: Conteo de prendas activas, prendas pausadas y categorías.
+3. **Gestión Completa de Prendas (CRUD)**:
+   - Botón **"+ Nueva Prenda Casual"**: Formulario modal para ingresar nombre, categoría, precio en RD$, precio anterior, etiqueta chic, fotos (con previsualización en vivo), tallas y selector de colores.
+   - Botón **"Editar Prenda" (✏️)**: Modifica cualquier dato de una prenda existente.
+   - Botón **"Pausar / Activar" (⏸️ / ▶️)**: Oculta o muestra una prenda del catálogo con un solo clic.
+   - Botón **"Eliminar" (🗑️)**: Elimina la prenda del catálogo.
+4. **Ajustes de Tienda y WhatsApp**:
+   - Modifica el número de WhatsApp receptor, nombre de la tienda, subtítulo y texto de la barra de avisos.
+5. **Descarga y Respaldo de `data.js`**:
+   - Botón para descargar el archivo `data.js` listo para guardar en GitHub.
+   - Botón para restaurar la colección original de fábrica.
 
 ---
 

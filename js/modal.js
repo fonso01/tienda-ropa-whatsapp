@@ -28,8 +28,8 @@ function initModalEvents() {
 }
 
 function openProductModal(productId) {
-  if (typeof PRODUCTS_DATA === 'undefined') return;
-  const product = PRODUCTS_DATA.find(p => p.id === productId);
+  const catalog = (typeof getStoreCatalog === 'function' ? getStoreCatalog() : window.PRODUCTS_DATA) || [];
+  const product = catalog.find(p => p.id === productId);
   if (!product) return;
 
   APP_STATE.modalProduct = product;

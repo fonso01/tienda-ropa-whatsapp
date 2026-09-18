@@ -6,9 +6,11 @@
 function renderCatalogProducts() {
   const container = document.getElementById('catalogProductsGrid');
   const countEl = document.getElementById('catalogCount');
-  if (!container || typeof PRODUCTS_DATA === 'undefined') return;
+  const catalog = (typeof getStoreCatalog === 'function' ? getStoreCatalog() : window.PRODUCTS_DATA) || [];
+  if (!container) return;
 
-  let filtered = [...PRODUCTS_DATA];
+  // Filtrar artículos que no estén pausados por el admin
+  let filtered = catalog.filter(p => !p.isPaused);
 
   // 1. Filtrar por categoría
   if (APP_STATE.selectedCategory !== 'Todos') {
@@ -63,6 +65,9 @@ function renderCatalogProducts() {
 
   container.innerHTML = filtered.map(p => createProductCardHtml(p)).join('');
   attachProductCardEvents(container);
+  if (typeof updateProductCardFavoriteButtons === 'function') {
+    updateProductCardFavoriteButtons();
+  }
 }
 
 function resetCatalogFilters() {
@@ -83,6 +88,7 @@ function createProductCardHtml(product) {
     <article class="product-item-card" data-id="${product.id}">
       <div class="product-img-box">
         ${product.tag ? `<span class="product-chic-badge">${product.tag}</span>` : ''}
+        <button class="product-fav-btn" data-product-id="${product.id}" type="button" onclick="toggleProductFavorite('${product.id}', event)" aria-label="Añadir a favoritos">♡</button>
         <img src="${product.image}" alt="${product.name}" loading="lazy" />
         <button class="product-quick-hover-btn" type="button" data-action="open-detail" data-id="${product.id}">
           <span>Ver Talla & Detalles</span> →

@@ -95,6 +95,21 @@ function openCartDrawer() {
     backdrop.classList.add('active');
     document.body.style.overflow = 'hidden';
   }
+
+  // Pre-cargar datos del panel de la clienta si están guardados
+  if (typeof getClientInfo === 'function') {
+    const info = getClientInfo();
+    const nameInp = document.getElementById('cartCustomerName');
+    const cityInp = document.getElementById('cartCustomerCity');
+    const notesInp = document.getElementById('cartCustomerNotes');
+    if (nameInp && !nameInp.value && info.name) nameInp.value = info.name;
+    if (cityInp && !cityInp.value && info.city) cityInp.value = info.city;
+    if (notesInp && !notesInp.value && info.notes) notesInp.value = info.notes;
+  }
+
+  if (typeof updateWhatsAppPreview === 'function') {
+    updateWhatsAppPreview();
+  }
 }
 
 function closeCartDrawer() {

@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel de Administración | SOMOS CASUAL</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220%22%3E<text y=%2226%22 font-size=%2226%22>🔐</text></svg>">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Estilos del Panel de Administración -->
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body class="admin-body">
+
+  <!-- =========================================================================
+       PANTALLA DE BLOQUEO POR PIN DE SEGURIDAD
+       ========================================================================= -->
+  <div class="pin-lock-overlay" id="adminPinOverlay">
+    <div class="pin-lock-card">
+      <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🔐</div>
+      <h2 class="pin-lock-title">Acceso de Administración</h2>
+      <p style="color: var(--admin-text-muted); font-size: 0.85rem;">
+        Ingresa el PIN de seguridad para gestionar <strong>SOMOS CASUAL</strong>.
+      </p>
+
+      <form id="adminPinForm">
+        <input 
+          type="password" 
+          id="adminPinInput" 
+          class="pin-lock-input" 
+          maxlength="6" 
+          placeholder="••••" 
+          required 
+          autocomplete="off"
+        />
+
+        <div id="adminPinError" style="color: var(--admin-danger); font-size: 0.82rem; margin-bottom: 1rem; display: none;"></div>
+
+        <button type="submit" class="btn-admin-action btn-admin-primary" style="width: 100%; justify-content: center; padding: 0.75rem;">
+          Ingresar al Panel
+        </button>
+
+        <div style="margin-top: 1.5rem;">
+          <a href="index.html" class="btn-admin-action btn-admin-secondary" style="width: 100%; justify-content: center;">
+            ← Volver a la Tienda
+          </a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       BARRA SUPERIOR DEL ADMINISTRADOR
+       ========================================================================= -->
+  <header class="admin-navbar">
+    <div class="admin-nav-container">
+      <div class="admin-brand-zone">
+        <span class="admin-brand-name">SOMOS CASUAL</span>
+        <span class="admin-badge-role">ADMINISTRACIÓN</span>
+      </div>
+
+      <div class="admin-nav-actions">
+        <a href="index.html" target="_blank" class="btn-admin-action btn-admin-secondary" title="Abrir tienda en nueva pestaña">
+          <span>👁️ Ver Tienda Pública</span>
+        </a>
+        <button class="btn-admin-action btn-admin-danger" type="button" onclick="handleAdminLogout()" title="Cerrar sesión de administrador">
+          <span>Salir</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       CONTENIDO PRINCIPAL DEL DASHBOARD
+       ========================================================================= -->
+  <main class="admin-main-content">
+
+    <!-- Tarjetas de Estadísticas -->
+    <section class="admin-stats-grid">
+      <div class="admin-stat-card">
+        <div class="stat-icon-circle">👗</div>
+        <div>
+          <div class="stat-value" id="statTotalProducts">0</div>
+          <div class="stat-label">Prendas en Catálogo</div>
+        </div>
+      </div>
+
+      <div class="admin-stat-card">
+        <div class="stat-icon-circle" style="color: var(--admin-success); background: #eaf6ec;">●</div>
+        <div>
+          <div class="stat-value" id="statActiveProducts">0</div>
+          <div class="stat-label">Prendas Visibles / Activas</div>
+        </div>
+      </div>
+
+      <div class="admin-stat-card">
+        <div class="stat-icon-circle" style="color: var(--admin-warning); background: #fef7e6;">⏸</div>
+        <div>
+          <div class="stat-value" id="statPausedProducts">0</div>
+          <div class="stat-label">Prendas Pausadas / Agotadas</div>
+        </div>
+      </div>
+
+      <div class="admin-stat-card">
+        <div class="stat-icon-circle" style="color: #6366f1; background: #eef2ff;">🏷️</div>
+        <div>
+          <div class="stat-value" id="statTotalCategories">0</div>
+          <div class="stat-label">Categorías Activas</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Navegación por Pestañas -->
+    <nav class="admin-tabs-nav" aria-label="Secciones de administración">
+      <button class="admin-nav-tab-btn active" type="button" data-target="tabCatalog">
+        👗 Catálogo de Prendas
+      </button>
+      <button class="admin-nav-tab-btn" type="button" data-target="tabSettings">
+        ⚙️ Ajustes de Tienda & WhatsApp
+      </button>
+      <button class="admin-nav-tab-btn" type="button" data-target="tabBackups">
+        💾 Exportación & Respaldos
+      </button>
+    </nav>
+
+    <!-- =======================================================================
+         PESTAÑA 1: CATÁLOGO DE PRENDAS
+         ======================================================================= -->
+    <section class="admin-tab-section active" id="tabCatalog">
+      <!-- Barra de Herramientas -->
+      <div class="catalog-toolbar">
+        <div class="toolbar-search-group">
+          <input 
+            type="search" 
+            id="adminCatalogSearch" 
+            class="admin-input-text" 
+            placeholder="Buscar por nombre, categoría o etiqueta..." 
+            style="flex: 1;"
+          />
+          <select id="adminCategoryFilter" class="admin-select">
+            <option value="all">Todas las Categorías</option>
+            <option value="Tops & Camisas">Tops & Camisas</option>
+            <option value="Jeans & Pantalones">Jeans & Pantalones</option>
+            <option value="Vestidos Casuales">Vestidos Casuales</option>
+            <option value="Sets & Conjuntos">Sets & Conjuntos</option>
+            <option value="Sneakers & Calzado">Sneakers & Calzado</option>
+            <option value="Bolsos & Accesorios">Bolsos & Accesorios</option>
+          </select>
+        </div>
+
+        <button class="btn-admin-action btn-admin-primary" id="adminNewProductBtn" type="button">
+          <span>+ Nueva Prenda Casual</span>
+        </button>
+      </div>
+
+      <!-- Tabla de Productos -->
+      <div class="admin-table-container">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>Prenda</th>
+              <th>Estado</th>
+              <th>Precio (RD$)</th>
+              <th>Tallas</th>
+              <th>Colores</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="adminCatalogTbody">
+            <!-- Renderizado dinámico vía JavaScript -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         PESTAÑA 2: AJUSTES DE TIENDA Y WHATSAPP
+         ======================================================================= -->
+    <section class="admin-tab-section" id="tabSettings">
+      <div class="settings-section-card" style="max-width: 720px;">
+        <h3 class="settings-card-title">Ajustes Generales de Somos Casual</h3>
+        <p class="settings-card-desc">
+          Configura el número que recibe los pedidos de WhatsApp, la información de cabecera y el PIN de acceso.
+        </p>
+
+        <form id="adminSettingsForm">
+          <div class="admin-form-group">
+            <label for="setWhatsappNumber">Número de WhatsApp Receptor</label>
+            <input 
+              type="text" 
+              id="setWhatsappNumber" 
+              class="admin-input-text" 
+              style="width: 100%;" 
+              placeholder="18095550199" 
+              required 
+            />
+            <span class="admin-form-help">
+              Ingresa el número con el código de país sin espacios ni guiones. Ejemplo para República Dominicana: <code>18095550199</code>.
+            </span>
+          </div>
+
+          <div class="admin-form-row">
+            <div class="admin-form-group">
+              <label for="setStoreName">Nombre Comercial de la Tienda</label>
+              <input 
+                type="text" 
+                id="setStoreName" 
+                class="admin-input-text" 
+                style="width: 100%;" 
+                placeholder="SOMOS CASUAL" 
+                required 
+              />
+            </div>
+
+            <div class="admin-form-group">
+              <label for="setStoreSubtitle">Subtítulo / Ciudad</label>
+              <input 
+                type="text" 
+                id="setStoreSubtitle" 
+                class="admin-input-text" 
+                style="width: 100%;" 
+                placeholder="SANTO DOMINGO • RD" 
+                required 
+              />
+            </div>
+          </div>
+
+          <div class="admin-form-group">
+            <label for="setAnnouncement">Mensaje de la Barra Superior</label>
+            <input 
+              type="text" 
+              id="setAnnouncement" 
+              class="admin-input-text" 
+              style="width: 100%;" 
+              placeholder="Envíos a todo el país • Atención personalizada y confirmación de tallas vía WhatsApp" 
+              required 
+            />
+          </div>
+
+          <div class="admin-form-group" style="max-width: 260px;">
+            <label for="setAdminPin">PIN de Acceso al Panel (4 dígitos)</label>
+            <input 
+              type="password" 
+              id="setAdminPin" 
+              class="admin-input-text" 
+              style="width: 100%; font-size: 1.1rem; letter-spacing: 0.3em; text-align: center;" 
+              maxlength="6" 
+              placeholder="1234" 
+              required 
+            />
+            <span class="admin-form-help">Código requerido para ingresar a esta pantalla.</span>
+          </div>
+
+          <button type="submit" class="btn-admin-action btn-admin-primary" style="padding: 0.75rem 1.5rem; margin-top: 1rem;">
+            Guardar Ajustes de Tienda
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         PESTAÑA 3: RESPALDOS Y EXPORTACIÓN
+         ======================================================================= -->
+    <section class="admin-tab-section" id="tabBackups">
+      <div class="settings-section-card" style="max-width: 720px;">
+        <h3 class="settings-card-title">Descarga de Código y Respaldos</h3>
+        <p class="settings-card-desc">
+          Los cambios que realizas en este panel se guardan en el navegador en tiempo real. Si deseas guardar tus prendas de forma permanente en el código fuente de tu repositorio en GitHub:
+        </p>
+
+        <div style="display: flex; flex-direction: column; gap: 1rem;">
+          <div style="padding: 1.25rem; border: 1px solid var(--admin-border); border-radius: 10px; background: #faf8f5;">
+            <h4 style="font-size: 0.95rem; margin-bottom: 0.4rem;">Descargar archivo <code>data.js</code></h4>
+            <p style="font-size: 0.82rem; color: var(--admin-text-muted); margin-bottom: 1rem;">
+              Descarga una copia con todas tus prendas actuales lista para reemplazar el archivo <code>js/data.js</code> en tu proyecto y hacer commit en GitHub.
+            </p>
+            <button class="btn-admin-action btn-admin-primary" type="button" onclick="downloadDataJsFile()">
+              <span>Descargar data.js Actualizado</span> 💾
+            </button>
+          </div>
+
+          <div style="padding: 1.25rem; border: 1px solid #fee2e2; border-radius: 10px; background: #fffafb;">
+            <h4 style="font-size: 0.95rem; margin-bottom: 0.4rem; color: var(--admin-danger);">Restablecer Catálogo Original</h4>
+            <p style="font-size: 0.82rem; color: var(--admin-text-muted); margin-bottom: 1rem;">
+              Restaura la colección inicial de 12 prendas de fábrica. Útil si deseas empezar de nuevo.
+            </p>
+            <button class="btn-admin-action btn-admin-danger" type="button" onclick="resetDefaultProductsCatalog()">
+              <span>Restaurar Catálogo de Fábrica</span> 🔄
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =========================================================================
+       MODAL DE CREACIÓN / EDICIÓN DE PRENDA
+       ========================================================================= -->
+  <div class="admin-modal-backdrop" id="adminProductModalBackdrop" role="dialog" aria-modal="true">
+    <div class="admin-modal-card">
+      <div class="admin-modal-header">
+        <h3 class="admin-modal-title" id="adminProductModalTitle">Nueva Prenda Casual</h3>
+        <button class="btn-icon-table" id="adminProductModalCloseBtn" type="button" aria-label="Cerrar ventana">✕</button>
+      </div>
+
+      <form id="adminProductForm">
+        <div class="admin-form-group">
+          <label for="prodNameInput">Nombre de la Prenda *</label>
+          <input type="text" id="prodNameInput" class="admin-input-text" style="width: 100%;" placeholder="Ej. Camisa Oversize Popelín Casual" required />
+        </div>
+
+        <div class="admin-form-row">
+          <div class="admin-form-group">
+            <label for="prodCategoryInput">Categoría *</label>
+            <select id="prodCategoryInput" class="admin-select" style="width: 100%;" required>
+              <option value="Tops & Camisas">Tops & Camisas</option>
+              <option value="Jeans & Pantalones">Jeans & Pantalones</option>
+              <option value="Vestidos Casuales">Vestidos Casuales</option>
+              <option value="Sets & Conjuntos">Sets & Conjuntos</option>
+              <option value="Sneakers & Calzado">Sneakers & Calzado</option>
+              <option value="Bolsos & Accesorios">Bolsos & Accesorios</option>
+            </select>
+          </div>
+
+          <div class="admin-form-group">
+            <label for="prodTagInput">Insignia / Etiqueta Sutil</label>
+            <input type="text" id="prodTagInput" class="admin-input-text" style="width: 100%;" placeholder="Ej. Básico Diario, Nuevo, etc." />
+          </div>
+        </div>
+
+        <div class="admin-form-row">
+          <div class="admin-form-group">
+            <label for="prodPriceInput">Precio en RD$ *</label>
+            <input type="number" id="prodPriceInput" class="admin-input-text" style="width: 100%;" placeholder="1500" min="0" required />
+          </div>
+
+          <div class="admin-form-group">
+            <label for="prodOriginalPriceInput">Precio Anterior (Oferta RD$)</label>
+            <input type="number" id="prodOriginalPriceInput" class="admin-input-text" style="width: 100%;" placeholder="Opcional. Ej. 1950" min="0" />
+          </div>
+        </div>
+
+        <div class="admin-form-group">
+          <label for="prodMainImgInput">URL de Fotografía Principal *</label>
+          <input type="url" id="prodMainImgInput" class="admin-input-text" style="width: 100%;" placeholder="https://ejemplo.com/foto.jpg" required />
+          <span class="admin-form-help">Enlace de imagen pública (.jpg o .png).</span>
+          <img id="prodImgPreview" src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=300&q=80" alt="Previsualización" class="img-preview-box" />
+        </div>
+
+        <div class="admin-form-group">
+          <label for="prodGalleryInput">Galería de Fotos Secundarias (Una URL por línea)</label>
+          <textarea id="prodGalleryInput" class="admin-input-text" rows="2" style="width: 100%;" placeholder="https://ejemplo.com/foto2.jpg&#10;https://ejemplo.com/foto3.jpg"></textarea>
+        </div>
+
+        <div class="admin-form-row">
+          <div class="admin-form-group">
+            <label for="prodSizesInput">Tallas (Separadas por comas)</label>
+            <input type="text" id="prodSizesInput" class="admin-input-text" style="width: 100%;" placeholder="S, M, L, XL" required />
+            <span class="admin-form-help">Ejemplo: <code>S, M, L, XL</code> o números: <code>36, 37, 38, 39</code></span>
+          </div>
+
+          <div class="admin-form-group">
+            <label for="prodColorsInput">Colores (Formato: Nombre:#hex, ...)</label>
+            <input type="text" id="prodColorsInput" class="admin-input-text" style="width: 100%;" placeholder="Blanco Clásico:#ffffff, Negro:#1c1917" required />
+            <span class="admin-form-help">Ejemplo: <code>Blanco:#ffffff, Beige:#e2d5c5</code></span>
+          </div>
+        </div>
+
+        <div class="admin-form-group">
+          <label for="prodDescInput">Descripción de la Prenda</label>
+          <textarea id="prodDescInput" class="admin-input-text" rows="3" style="width: 100%;" placeholder="Consejos de combinación, tela, ajuste y uso casual..."></textarea>
+        </div>
+
+        <div style="display: flex; justify-content: flex-end; gap: 0.75rem; margin-top: 1.5rem; border-top: 1px solid var(--admin-border); padding-top: 1.25rem;">
+          <button type="button" class="btn-admin-action btn-admin-secondary" onclick="closeProductModal()">
+            Cancelar
+          </button>
+          <button type="submit" class="btn-admin-action btn-admin-primary">
+            Guardar Prenda
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Contenedor de Notificaciones Toast -->
+  <div class="admin-toast-container" id="adminToastContainer"></div>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

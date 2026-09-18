@@ -3,7 +3,7 @@
  * Prendas versátiles, cómodas y chic para el día a día, salidas, cine, compras y reuniones casuales.
  */
 
-const PRODUCTS_DATA = [
+const DEFAULT_PRODUCTS_DATA = [
   {
     id: 'camisa-oversize',
     name: 'Camisa Oversize Popelín Casual',
@@ -246,6 +246,69 @@ const PRODUCTS_DATA = [
   }
 ];
 
-if (typeof window !== 'undefined') {
-  window.PRODUCTS_DATA = PRODUCTS_DATA;
+// Gestión dinámica de catálogo en memoria y localStorage
+function getStoreCatalog() {
+  if (typeof localStorage === 'undefined') return DEFAULT_PRODUCTS_DATA;
+  try {
+    const saved = localStorage.getItem('somos_casual_custom_catalog');
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      if (Array.isArray(parsed) && parsed.length > 0) {
+        return parsed;
+      }
+    }
+  } catch (e) {
+    console.error('Error al cargar catálogo personalizado:', e);
+  }
+  return DEFAULT_PRODUCTS_DATA;
 }
+
+function saveStoreCatalog(newCatalog) {
+  if (typeof localStorage !== 'undefined') {
+    localStorage.setItem('somos_casual_custom_catalog', JSON.stringify(newCatalog));
+  }
+  PRODUCTS_DATA = newCatalog;
+  if (typeof window !== 'undefined') {
+    window.PRODUCTS_DATA = newCatalog;
+  }
+}
+
+function getStoreSettings() {
+  if (typeof localStorage === 'undefined') {
+    return {
+      storeName: 'SOMOS CASUAL',
+      storeSubtitle: 'SANTO DOMINGO • RD',
+      whatsappNumber: '18095550199',
+      announcementText: 'Envíos a todo el país • Atención personalizada y confirmación de tallas vía WhatsApp',
+      adminPin: '1234'
+    };
+  }
+  return {
+    storeName: localStorage.getItem('somos_casual_store_name') || 'SOMOS CASUAL',
+    storeSubtitle: localStorage.getItem('somos_casual_store_subtitle') || 'SANTO DOMINGO • RD',
+    whatsappNumber: localStorage.getItem('somos_casual_whatsapp_number') || '18095550199',
+    announcementText: localStorage.getItem('somos_casual_announcement') || 'Envíos a todo el país • Atención personalizada y confirmación de tallas vía WhatsApp',
+    adminPin: localStorage.getItem('somos_casual_admin_pin') || '1234'
+  };
+}
+
+function saveStoreSettings(settings) {
+  if (typeof localStorage === 'undefined') return;
+  if (settings.storeName) localStorage.setItem('somos_casual_store_name', settings.storeName);
+  if (settings.storeSubtitle) localStorage.setItem('somos_casual_store_subtitle', settings.storeSubtitle);
+  if (settings.whatsappNumber) localStorage.setItem('somos_casual_whatsapp_number', settings.whatsappNumber);
+  if (settings.announcementText) localStorage.setItem('somos_casual_announcement', settings.announcementText);
+  if (settings.adminPin) localStorage.setItem('somos_casual_admin_pin', settings.adminPin);
+}
+
+var PRODUCTS_DATA = getStoreCatalog();
+
+if (typeof window !== 'undefined') {
+  window.DEFAULT_PRODUCTS_DATA = DEFAULT_PRODUCTS_DATA;
+  window.PRODUCTS_DATA = PRODUCTS_DATA;
+  window.getStoreCatalog = getStoreCatalog;
+  window.saveStoreCatalog = saveStoreCatalog;
+  window.getStoreSettings = getStoreSettings;
+  window.saveStoreSettings = saveStoreSettings;
+}
+

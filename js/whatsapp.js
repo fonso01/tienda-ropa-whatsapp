@@ -66,9 +66,23 @@ function handleWhatsAppOrderSubmit() {
   const phone = (APP_STATE.whatsappNumber || '18095550199').replace(/[^0-9]/g, '');
   const whatsappUrl = `https://wa.me/${phone}?text=${encodeURIComponent(messageText)}`;
 
+  // Registrar en el historial del panel de clienta
+  if (typeof recordOrderHistory === 'function') {
+    const total = APP_STATE.cart.reduce((sum, it) => sum + (it.price * it.quantity), 0);
+    recordOrderHistory({
+      items: [...APP_STATE.cart],
+      total: total,
+      customer: {
+        name: document.getElementById('cartCustomerName')?.value.trim() || '',
+        city: document.getElementById('cartCustomerCity')?.value.trim() || '',
+        notes: document.getElementById('cartCustomerNotes')?.value.trim() || ''
+      }
+    });
+  }
+
   window.open(whatsappUrl, '_blank');
   if (typeof showToast === 'function') {
-    showToast('Abriendo WhatsApp con tu pedido preparado...');
+    showToast('Abriendo WhatsApp con tu pedido preparado...', '💬');
   }
 }
 

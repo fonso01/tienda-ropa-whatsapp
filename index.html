@@ -16,6 +16,7 @@
 
   <!-- Estilos Femeninos Editoriales Modulares -->
   <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/client-panel.css">
 </head>
 <body>
 
@@ -49,6 +50,13 @@
 
       <!-- Acciones de Cabecera -->
       <div class="header-actions">
+        <!-- Espacio de la Clienta -->
+        <button class="btn-client-space" id="openClientPanelBtn" type="button" title="Mi Espacio / Mis Favoritos" aria-label="Abrir mi espacio">
+          <span>👤</span>
+          <span>Mi Espacio</span>
+          <span class="client-fav-count" style="background: var(--accent-terracotta); color: #fff; border-radius: 999px; padding: 0.1rem 0.45rem; font-size: 0.7rem; font-weight: 700;">0</span>
+        </button>
+
         <!-- Ajuste de WhatsApp -->
         <button class="btn-icon-minimal" id="openSettingsBtn" type="button" title="Configurar número WhatsApp" aria-label="Configurar WhatsApp">
           ⚙
@@ -330,6 +338,7 @@
             <li><a href="#catalogo">Colección</a></li>
             <li><a href="#como-funciona">Cómo Funciona</a></li>
             <li><a href="#somos-casual">Nuestra Filosofía</a></li>
+            <li><a href="admin.html" style="color: #e2d5c5; font-weight: 600;">Panel Administrador 🔐</a></li>
           </ul>
         </div>
 
@@ -523,6 +532,107 @@
   </div>
 
   <!-- =========================================================================
+       DRAWER LATERAL "MI ESPACIO" (PANEL DE LA CLIENTA)
+       ========================================================================= -->
+  <div class="client-drawer-backdrop" id="clientDrawerBackdrop" role="dialog" aria-modal="true" aria-labelledby="clientDrawerTitle">
+    <div class="client-drawer-panel">
+      <!-- Encabezado -->
+      <div class="client-drawer-header">
+        <div class="client-drawer-title-area">
+          <h3 id="clientDrawerTitle">Mi Espacio</h3>
+          <p>Tus datos de entrega, favoritos y pedidos</p>
+        </div>
+        <button class="drawer-close-btn" id="closeClientPanelBtn" type="button" aria-label="Cerrar mi espacio">✕</button>
+      </div>
+
+      <!-- Barra de Pestañas -->
+      <div class="client-tabs-nav">
+        <button class="client-tab-btn active" type="button" data-tab="clientTabFavorites">
+          Mis Favoritos (<span class="client-fav-count">0</span>)
+        </button>
+        <button class="client-tab-btn" type="button" data-tab="clientTabProfile">
+          Datos de Entrega
+        </button>
+        <button class="client-tab-btn" type="button" data-tab="clientTabOrders">
+          Mis Pedidos
+        </button>
+      </div>
+
+      <!-- Contenido con scroll -->
+      <div class="client-tab-content-zone">
+        <!-- Pestaña 1: Favoritos -->
+        <div class="client-tab-pane active" id="clientTabFavorites">
+          <div id="clientWishlistContainer"></div>
+          <div class="cart-empty-msg" id="clientWishlistEmpty" style="display: none; padding: 2.5rem 1rem; text-align: center;">
+            <div class="icon" style="font-size: 2.5rem; margin-bottom: 0.5rem;">♡</div>
+            <h4 class="serif-font" style="font-size: 1.25rem;">Aún no tienes favoritos</h4>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.4rem;">
+              Pulsa el corazón en cualquier prenda del catálogo para guardarla aquí.
+            </p>
+          </div>
+        </div>
+
+        <!-- Pestaña 2: Datos de Entrega -->
+        <div class="client-tab-pane" id="clientTabProfile">
+          <form id="clientProfileForm">
+            <div class="client-form-group">
+              <label for="clientNameInput">Tu Nombre Completo</label>
+              <input type="text" class="chic-input" id="clientNameInput" placeholder="Ej. Laura Sánchez" required />
+            </div>
+
+            <div class="client-form-group">
+              <label for="clientPhoneInput">Teléfono / WhatsApp</label>
+              <input type="tel" class="chic-input" id="clientPhoneInput" placeholder="Ej. 809-555-0123" />
+              <span class="client-form-help">Para coordinar la confirmación y entrega</span>
+            </div>
+
+            <div class="client-form-group">
+              <label for="clientCityInput">Sector y Ciudad (República Dominicana)</label>
+              <input type="text" class="chic-input" id="clientCityInput" placeholder="Ej. Piantini, Santo Domingo" required />
+            </div>
+
+            <div class="client-form-group">
+              <label for="clientSizeInput">Talla Habitual de Ropa</label>
+              <input type="text" class="chic-input" id="clientSizeInput" placeholder="Ej. Talla M / Pantalón 34" />
+            </div>
+
+            <div class="client-form-group">
+              <label for="clientNotesInput">Preferencias o Referencias de Entrega</label>
+              <textarea class="chic-input" id="clientNotesInput" rows="2" placeholder="Ej. Edificio Torre Bella, apto 4B. Entregar por la tarde."></textarea>
+            </div>
+
+            <button type="submit" class="btn-chic-primary" style="width: 100%; justify-content: center; margin-top: 0.5rem;">
+              Guardar Mis Datos
+            </button>
+            <span class="client-form-help" style="text-align: center; margin-top: 0.75rem;">
+              ✦ Estos datos se cargarán automáticamente al enviar tu pedido por WhatsApp.
+            </span>
+          </form>
+        </div>
+
+        <!-- Pestaña 3: Historial de Pedidos -->
+        <div class="client-tab-pane" id="clientTabOrders">
+          <div id="clientOrdersContainer"></div>
+          <div class="cart-empty-msg" id="clientOrdersEmpty" style="display: none; padding: 2.5rem 1rem; text-align: center;">
+            <div class="icon" style="font-size: 2.5rem; margin-bottom: 0.5rem;">🛍️</div>
+            <h4 class="serif-font" style="font-size: 1.25rem;">No tienes pedidos registrados</h4>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.4rem;">
+              Cuando envíes un pedido por WhatsApp, quedará registrado aquí.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pie del Drawer -->
+      <div class="client-drawer-footer">
+        <button class="btn-chic-primary" type="button" style="width: 100%; justify-content: center; background: #25d366; border-color: #25d366;" onclick="openDirectWhatsAppInquiry()">
+          <span>Hablar con mi asesora</span> 💬
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
        MODAL DE AJUSTES (CONFIGURACIÓN WHATSAPP)
        ========================================================================= -->
   <div class="modal-backdrop" id="settingsModalBackdrop" role="dialog" aria-modal="true">
@@ -586,6 +696,7 @@
 
   <!-- JavaScript Modular -->
   <script src="js/data.js"></script>
+  <script src="js/client-panel.js"></script>
   <script src="js/cart.js"></script>
   <script src="js/catalog.js"></script>
   <script src="js/modal.js"></script>
