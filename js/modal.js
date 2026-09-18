@@ -1,5 +1,5 @@
 /**
- * AURA ATELIER RD - Módulo del Modal de Detalle de Prenda
+ * SOMOS CASUAL - Módulo del Modal de Detalle de Prenda
  * Visualización de la prenda, cambio de fotos, selector de tallas y colores, stepper y agregar al pedido.
  */
 

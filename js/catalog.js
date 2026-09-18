@@ -1,5 +1,5 @@
 /**
- * AURA ATELIER RD - Módulo del Catálogo
+ * SOMOS CASUAL - Módulo del Catálogo
  * Filtrado por categorías, búsqueda en tiempo real, ordenación y renderizado de tarjetas.
  */
 

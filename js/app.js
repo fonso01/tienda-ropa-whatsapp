@@ -1,5 +1,5 @@
 /**
- * AURA ATELIER RD - Módulo Principal de la Aplicación
+ * SOMOS CASUAL - Módulo Principal de la Aplicación
  * Coordinación de módulos e inicialización en DOMContentLoaded.
  */
 

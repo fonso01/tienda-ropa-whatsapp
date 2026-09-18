@@ -1,5 +1,5 @@
 /**
- * AURA ATELIER RD - Módulo de WhatsApp
+ * SOMOS CASUAL - Módulo de WhatsApp
  * Generador exacto del mensaje de pedido, URL encoder y modal de configuración.
  */
 
@@ -104,11 +104,11 @@ function initSettingsModal() {
 
       if (newPhone) {
         APP_STATE.whatsappNumber = newPhone;
-        localStorage.setItem('aura_whatsapp_number', newPhone);
+        localStorage.setItem('somos_casual_whatsapp_number', newPhone);
       }
       if (newStoreName) {
         APP_STATE.storeName = newStoreName;
-        localStorage.setItem('aura_store_name', newStoreName);
+        localStorage.setItem('somos_casual_store_name', newStoreName);
         document.querySelectorAll('.store-name-text').forEach(el => el.textContent = newStoreName);
       }
 

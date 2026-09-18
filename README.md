@@ -20,12 +20,12 @@ tienda/
 ├── css/                  # Estilos modulares organizados por componentes
 │   ├── main.css          # Archivo maestro que importa todos los submódulos
 │   ├── variables.css     # Paleta de color femenina, tipografía Playfair y reset base
-│   ├── header.css        # Barra de anuncios, logotipo del atelier y botón de bolsa
+│   ├── header.css        # Barra de anuncios, logotipo de Somos Casual y botón de bolsa
 │   ├── hero.css          # Portada editorial, marco fotográfico en arco y pilares
 │   ├── catalog.css       # Pestañas de categorías, buscador, ordenación y fichas de prendas
 │   ├── modal.css         # Modal de detalle de prenda, selectores de talla/color y stepper
 │   ├── drawer.css        # Panel lateral "Mi Pedido", resumen financiero y botón WhatsApp
-│   └── footer.css        # Sección "Cómo Funciona", historia del atelier, footer y botón flotante
+│   └── footer.css        # Sección "Cómo Funciona", historia de Somos Casual, footer y botón flotante
 │
 └── js/                   # Lógica JavaScript modular
     ├── data.js           # Catálogo de prendas, tallas, colores y precios en RD$

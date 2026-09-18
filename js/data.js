@@ -1,5 +1,5 @@
 /**
- * AURA ATELIER RD - Catálogo de Ropa Casual para Salir y Andar
+ * SOMOS CASUAL - Catálogo de Ropa Casual para Salir y Andar
  * Prendas versátiles, cómodas y chic para el día a día, salidas, cine, compras y reuniones casuales.
  */
 
