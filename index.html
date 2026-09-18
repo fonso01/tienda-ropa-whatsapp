@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AURA ATELIER | Colección Femenina y Pedidos por WhatsApp</title>
+  <meta name="description" content="Boutique femenina exclusiva de moda contemporánea, linos y prendas fluidas. Arma tu pedido en la web y confirma tu talla y disponibilidad directamente por WhatsApp.">
+  
+  <!-- Favicon SVG Chic -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220%22%3E<text y=%2226%22 font-size=%2226%22>✨</text></svg>">
+
+  <!-- Google Fonts: Editorial Serif (Playfair Display) + Sans Limpio (Plus Jakarta Sans) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Estilos Femeninos Editoriales Modulares -->
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+  <!-- =========================================================================
+       BARRA SUPERIOR (DISCRETA Y REFINADA)
+       ========================================================================= -->
+  <aside class="top-announcement" aria-label="Avisos del Atelier">
+    <span class="sparkle">✦</span>
+    <span>Envíos a todo el país • <strong>Atención personalizada y confirmación de tallas vía WhatsApp</strong></span>
+    <span class="sparkle">✦</span>
+  </aside>
+
+  <!-- =========================================================================
+       CABECERA DEL ATELIER
+       ========================================================================= -->
+  <header class="header-main" id="headerMain">
+    <div class="container nav-wrapper">
+      <!-- Marca Femenina -->
+      <a href="#hero" class="logo-brand" aria-label="Inicio Aura Atelier">
+        <span class="brand-title store-name-text">AURA ATELIER</span>
+        <span class="brand-subtitle">SANTO DOMINGO • RD</span>
+      </a>
+
+      <!-- Enlaces de Navegación Editorial -->
+      <nav class="nav-links" aria-label="Navegación principal">
+        <a href="#hero" class="nav-link active">Inicio</a>
+        <a href="#catalogo" class="nav-link">Colección</a>
+        <a href="#destacados" class="nav-link">Favoritos</a>
+        <a href="#como-funciona" class="nav-link">Cómo Funciona</a>
+        <a href="#el-atelier" class="nav-link">El Atelier</a>
+      </nav>
+
+      <!-- Acciones de Cabecera -->
+      <div class="header-actions">
+        <!-- Ajuste de WhatsApp -->
+        <button class="btn-icon-minimal" id="openSettingsBtn" type="button" title="Configurar número WhatsApp" aria-label="Configurar WhatsApp">
+          ⚙
+        </button>
+
+        <!-- Botón Mi Pedido / Carrito -->
+        <button class="btn-cart-chic" id="headerCartBtn" type="button" data-action="open-cart" aria-label="Ver mi pedido">
+          <span>Bolsa:</span>
+          <span id="cartHeaderTotal">RD$0</span>
+          <span class="cart-chic-badge" id="cartBadgeCounter">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       HERO EDITORIAL (EDITORIAL FEMENINO & ORGÁNICO)
+       ========================================================================= -->
+  <main>
+    <section class="hero-editorial" id="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <!-- Texto Editorial -->
+          <div class="hero-copy">
+            <span class="hero-tagline">✦ Outfits Casuales para Salir & Andar</span>
+            <h1 class="hero-headline">
+              Estilo diario, cómodo y con onda para <em>salir y andar</em>
+            </h1>
+            <p class="hero-description">
+              Prendas versátiles para salir con amigas, ir al mall, cenar o andar relajada sin perder el toque chic. Elige tus favoritos y confirma tallas y delivery directamente por WhatsApp.
+            </p>
+
+            <div class="hero-action-row">
+              <a href="#catalogo" class="btn-chic-primary">
+                <span>Ver Outfits Casuales</span> →
+              </a>
+              <a href="#como-funciona" class="btn-chic-link">
+                <span>¿Cómo funciona el pedido?</span>
+              </a>
+            </div>
+
+            <!-- Tres pilares sutiles -->
+            <div class="hero-pillars-bar">
+              <div class="pillar-item">
+                <span class="pillar-bullet">✦</span>
+                <div class="pillar-text">
+                  <h4>Comodidad Real</h4>
+                  <p>Prendas y tenis pensados para andar todo el día sin cansancio</p>
+                </div>
+              </div>
+              <div class="pillar-item">
+                <span class="pillar-bullet">✦</span>
+                <div class="pillar-text">
+                  <h4>Fáciles de Combinar</h4>
+                  <p>Looks que pasan del día a la noche con un solo cambio de accesorio</p>
+                </div>
+              </div>
+              <div class="pillar-item">
+                <span class="pillar-bullet">✦</span>
+                <div class="pillar-text">
+                  <h4>Asesoría de Tallas</h4>
+                  <p>Te decimos exactamente cómo ajusta cada prenda por WhatsApp</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Imagen con Marco en Arco Femenino -->
+          <div class="hero-visual">
+            <div class="hero-image-frame">
+              <img 
+                src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1000&q=80" 
+                alt="Outfits casuales para salir y andar Aura Atelier" 
+              />
+            </div>
+            
+            <div class="hero-floating-card">
+              <div class="quote-title">"El look para tu día a día"</div>
+              <div class="quote-desc">Perfecta para el mall, salir a comer, el cine o una tarde con tus amigas.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         PIEZAS DESTACADAS (FAVORITOS DE LA TEMPORADA)
+         ======================================================================= -->
+    <section class="container" id="destacados" style="padding-top: 2rem; padding-bottom: 3.5rem;">
+      <div class="section-editorial-header">
+        <span class="section-label">Selección Exclusiva</span>
+        <h2 class="section-headline">Piezas <em>Destacadas</em></h2>
+        <p class="section-subtext">
+          Los diseños más pedidos de la temporada. Precios claros en Pesos Dominicanos (RD$).
+        </p>
+      </div>
+
+      <div class="product-grid-chic" id="featuredProductsGrid">
+        <!-- Renderizado dinámico vía JavaScript -->
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         AVISO EDITORIAL DE DISPONIBILIDAD (CRÍTICO)
+         ======================================================================= -->
+    <section class="container">
+      <div class="inquiry-editorial-banner">
+        <div class="inquiry-badge-tag">Consultar disponibilidad ✦</div>
+        <div class="inquiry-banner-text">
+          Para brindarte la mejor experiencia, <strong>no realizamos cobros automáticos en esta web ni manejamos inventario rígido</strong>. Al enviar tu lista por WhatsApp, una asesora de nuestro atelier revisará tus prendas y te confirmará disponibilidad de talla y color antes de cualquier pago.
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         CATÁLOGO COMPLETO
+         ======================================================================= -->
+    <section class="container" id="catalogo" style="padding-bottom: 5.5rem;">
+      <div class="section-editorial-header">
+        <span class="section-label">Explora Todo el Guardarropa</span>
+        <h2 class="section-headline">Nuestra <em>Colección</em></h2>
+        <p class="section-subtext" id="catalogCount">Cargando piezas...</p>
+      </div>
+
+      <!-- Barra de Categorías Casuales -->
+      <nav class="catalog-nav-bar" role="tablist" aria-label="Categorías de la colección">
+        <button class="category-tab-btn active" type="button" data-category="Todos">Todas</button>
+        <button class="category-tab-btn" type="button" data-category="Tops & Camisas">Tops & Camisas</button>
+        <button class="category-tab-btn" type="button" data-category="Jeans & Pantalones">Jeans & Pantalones</button>
+        <button class="category-tab-btn" type="button" data-category="Vestidos Casuales">Vestidos Casuales</button>
+        <button class="category-tab-btn" type="button" data-category="Sets & Conjuntos">Sets & Conjuntos</button>
+        <button class="category-tab-btn" type="button" data-category="Sneakers & Calzado">Sneakers & Calzado</button>
+        <button class="category-tab-btn" type="button" data-category="Bolsos & Accesorios">Bolsos & Accesorios</button>
+      </nav>
+
+      <!-- Barra de Búsqueda y Ordenamiento -->
+      <div class="catalog-search-sort-bar">
+        <div class="search-field-wrapper">
+          <span class="icon">🔍</span>
+          <input 
+            type="search" 
+            class="search-chic-input" 
+            id="catalogSearchInput" 
+            placeholder="Buscar por prendas, jeans, cargo, sneakers, tops..." 
+            aria-label="Buscar prenda"
+          />
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+          <label for="catalogSortSelect" style="font-size: 0.85rem; color: var(--text-muted);">Ordenar por:</label>
+          <select class="sort-chic-select" id="catalogSortSelect" aria-label="Ordenar prendas">
+            <option value="featured">Destacados</option>
+            <option value="price-low">Precio: Menor a Mayor</option>
+            <option value="price-high">Precio: Mayor a Menor</option>
+            <option value="name-asc">Nombre (A - Z)</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Grid de Productos -->
+      <div class="product-grid-chic" id="catalogProductsGrid">
+        <!-- Renderizado dinámico vía JavaScript -->
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         CÓMO FUNCIONA (EXPERIENCIA EDITORIAL ATELIER)
+         ======================================================================= -->
+    <section class="how-it-works-editorial" id="como-funciona">
+      <div class="container">
+        <div class="section-editorial-header">
+          <span class="section-label">Paso a Paso</span>
+          <h2 class="section-headline">¿Cómo funciona tu <em>pedido</em>?</h2>
+          <p class="section-subtext">
+            Un proceso pensado para tu tranquilidad y un trato 100% humano.
+          </p>
+        </div>
+
+        <div class="editorial-steps-grid">
+          <!-- Paso 1 -->
+          <div class="editorial-step-card">
+            <span class="step-roman-num">I.</span>
+            <h3 class="step-card-title">Elige tus prendas</h3>
+            <p class="step-card-text">
+              Navega en el catálogo, elige tu talla y color deseado y añádelas a tu pedido con un toque.
+            </p>
+          </div>
+
+          <!-- Paso 2 -->
+          <div class="editorial-step-card">
+            <span class="step-roman-num">II.</span>
+            <h3 class="step-card-title">Envía por WhatsApp</h3>
+            <p class="step-card-text">
+              Presiona "Enviar pedido por WhatsApp". Tu lista se redacta automáticamente en tu chat.
+            </p>
+          </div>
+
+          <!-- Paso 3 -->
+          <div class="editorial-step-card">
+            <span class="step-roman-num">III.</span>
+            <h3 class="step-card-title">Validamos tu talla</h3>
+            <p class="step-card-text">
+              Comprobamos el stock en taller. Si una talla se agotó, te ofrecemos opciones y colores al instante.
+            </p>
+          </div>
+
+          <!-- Paso 4 -->
+          <div class="editorial-step-card">
+            <span class="step-roman-num">IV.</span>
+            <h3 class="step-card-title">Pago & Entrega</h3>
+            <p class="step-card-text">
+              Coordinamos tu método de pago preferido y preparamos tu paquete para delivery a tu dirección.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         EL ATELIER (NOSOTROS)
+         ======================================================================= -->
+    <section class="about-atelier-section" id="el-atelier">
+      <div class="container">
+        <div class="about-atelier-grid">
+          <div class="about-atelier-images">
+            <div class="about-img-arch">
+              <img 
+                src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=80" 
+                alt="Moda femenina consciente Aura Atelier" 
+              />
+            </div>
+          </div>
+
+          <div class="about-copy">
+            <span class="section-label">Nuestra Filosofía</span>
+            <h2>Creado con calma, pensado para <em>hacerte brillar</em></h2>
+            <p>
+              Aura Atelier nace del deseo de ofrecer piezas femeninas donde la ligereza de los tejidos naturales, el corte impecable y la sutileza de los tonos tierra creen un fondo de armario duradero.
+            </p>
+            <p>
+              Preferimos el contacto directo a través de WhatsApp porque cada mujer es única: nos encanta responder sobre cómo ajusta cada prenda, medidas exactas y recomendar combinaciones para tus ocasiones especiales.
+            </p>
+
+            <div class="about-chic-features">
+              <div class="about-chic-feature-item">
+                <span class="bullet">✦</span>
+                <span>Prendas en lino, sedas y algodones de alta suavidad</span>
+              </div>
+              <div class="about-chic-feature-item">
+                <span class="bullet">✦</span>
+                <span>Asesoría directa en medidas y siluetas por WhatsApp</span>
+              </div>
+              <div class="about-chic-feature-item">
+                <span class="bullet">✦</span>
+                <span>Empaque delicado y entregas en todo el territorio dominicano</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================================================================
+       FOOTER CHIC
+       ========================================================================= -->
+  <footer class="footer-chic">
+    <div class="container">
+      <div class="footer-chic-grid">
+        <div>
+          <div class="brand-title" style="color: #fff; font-size: 1.5rem;">
+            <span class="store-name-text">AURA ATELIER</span>
+          </div>
+          <div class="brand-subtitle" style="color: #a8948a; margin-top: 0.2rem;">SANTO DOMINGO • REPÚBLICA DOMINICANA</div>
+          <p class="footer-atelier-desc">
+            Moda femenina atemporal, linos y prendas diseñadas con delicadeza. Pedidos y confirmación de stock directa por WhatsApp.
+          </p>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Colección Casual</div>
+          <ul class="footer-links-list">
+            <li><a href="#catalogo" onclick="APP_STATE.selectedCategory='Tops & Camisas'; renderCatalogProducts();">Tops & Camisas</a></li>
+            <li><a href="#catalogo" onclick="APP_STATE.selectedCategory='Jeans & Pantalones'; renderCatalogProducts();">Jeans & Pantalones</a></li>
+            <li><a href="#catalogo" onclick="APP_STATE.selectedCategory='Vestidos Casuales'; renderCatalogProducts();">Vestidos Casuales</a></li>
+            <li><a href="#catalogo" onclick="APP_STATE.selectedCategory='Sets & Conjuntos'; renderCatalogProducts();">Sets & Conjuntos</a></li>
+            <li><a href="#catalogo" onclick="APP_STATE.selectedCategory='Sneakers & Calzado'; renderCatalogProducts();">Sneakers & Calzado</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Atelier</div>
+          <ul class="footer-links-list">
+            <li><a href="#hero">Inicio</a></li>
+            <li><a href="#destacados">Favoritos</a></li>
+            <li><a href="#como-funciona">Cómo Funciona</a></li>
+            <li><a href="#el-atelier">Nuestra Historia</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Atención Personalizada</div>
+          <p style="font-size: 0.88rem; color: #bfaea5; margin-bottom: 1.25rem;">
+            ¿Dudas sobre medidas o asesoría para un evento? Escríbenos directamente:
+          </p>
+          <button class="btn-chic-primary" style="padding: 0.75rem 1.4rem; font-size: 0.85rem;" onclick="openDirectWhatsAppInquiry()">
+            <span>Hablar con una Asesora</span> 💬
+          </button>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <div>© 2025 - 2026 <span class="store-name-text">AURA ATELIER RD</span>. Todos los derechos reservados.</div>
+        <div>Diseñado para coordinar compras cálidas vía WhatsApp ✦</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =========================================================================
+       MODAL DE DETALLE DE PRENDA (BOUTIQUE DETAIL MODAL)
+       ========================================================================= -->
+  <div class="modal-backdrop" id="productModalBackdrop" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-chic-dialog">
+      <button class="modal-close-icon-btn" id="productModalCloseBtn" type="button" aria-label="Cerrar detalle">
+        ✕
+      </button>
+
+      <div class="modal-product-layout">
+        <!-- Galería de Fotos -->
+        <div class="modal-gallery-side">
+          <div class="modal-main-image-container">
+            <img id="modalMainImage" src="" alt="" />
+          </div>
+          <div class="modal-thumb-row" id="modalThumbnails">
+            <!-- Miniaturas dinámicas -->
+          </div>
+        </div>
+
+        <!-- Información y Variantes -->
+        <div class="modal-info-side">
+          <span class="modal-category-label" id="modalCategory"></span>
+          <h2 class="modal-title-heading" id="modalTitle"></h2>
+
+          <div class="modal-price-area">
+            <span class="modal-price-val" id="modalPrice"></span>
+            <span class="modal-price-old" id="modalOriginalPrice"></span>
+          </div>
+
+          <!-- AVISO OFICIAL: Consultar disponibilidad -->
+          <div class="modal-inquiry-explainer">
+            <div class="title">✦ Consultar disponibilidad</div>
+            <div class="body">
+              La confirmación real de stock y medidas ocurre por WhatsApp antes de formalizar tu pedido.
+            </div>
+          </div>
+
+          <p class="modal-desc-text" id="modalDescription"></p>
+
+          <!-- Selector de Tallas -->
+          <div class="variant-selection-group">
+            <div class="variant-label-row">
+              <span class="variant-label-name">Talla:</span>
+              <span class="variant-selected-value" id="modalSelectedSizeLabel"></span>
+            </div>
+            <div class="size-chips-container" id="modalSizeSelectorGrid">
+              <!-- Botones de talla dinámicos -->
+            </div>
+          </div>
+
+          <!-- Selector de Colores -->
+          <div class="variant-selection-group">
+            <div class="variant-label-row">
+              <span class="variant-label-name">Color:</span>
+              <span class="variant-selected-value" id="modalSelectedColorLabel"></span>
+            </div>
+            <div class="color-chips-container" id="modalColorSelectorGrid">
+              <!-- Botones de color dinámicos -->
+            </div>
+          </div>
+
+          <!-- Cantidad y Botón Agregar -->
+          <div class="modal-actions-bar">
+            <div class="stepper-pill">
+              <button class="stepper-btn" type="button" onclick="stepModalQuantity(-1)" aria-label="Disminuir cantidad">-</button>
+              <span class="stepper-val" id="modalQtyDisplay">1</span>
+              <button class="stepper-btn" type="button" onclick="stepModalQuantity(1)" aria-label="Aumentar cantidad">+</button>
+            </div>
+
+            <button class="btn-add-order-chic" id="modalAddToCartBtn" type="button">
+              <span>AGREGAR AL PEDIDO</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       DRAWER LATERAL "MI PEDIDO" (SLIDE-OVER BOUTIQUE)
+       ========================================================================= -->
+  <div class="drawer-backdrop" id="cartDrawerBackdrop" role="dialog" aria-modal="true" aria-labelledby="drawerTitle">
+    <div class="drawer-chic-panel">
+      <!-- Encabezado -->
+      <div class="drawer-top-bar">
+        <h3 class="drawer-headline" id="drawerTitle">Mi Pedido</h3>
+        <button class="drawer-close-btn" id="cartDrawerCloseBtn" type="button" aria-label="Cerrar pedido">
+          ✕
+        </button>
+      </div>
+
+      <!-- Aviso explicativo -->
+      <div class="drawer-human-notice">
+        ✦ Prepara tu lista de prendas. La confirmación de tallas y el pago se gestionan en WhatsApp.
+      </div>
+
+      <!-- Contenido scrolleable -->
+      <div class="drawer-scrollable-content">
+        <!-- Lista de prendas agregadas -->
+        <div class="cart-items-container" id="cartItemsList">
+          <!-- Renderizado dinámico vía JavaScript -->
+        </div>
+
+        <!-- Estado vacío -->
+        <div class="cart-empty-msg" id="cartEmptyState">
+          <div class="icon">✨</div>
+          <h3 class="serif-font">Tu bolsa está vacía</h3>
+          <p>Explora nuestras prendas y añade tus piezas favoritas.</p>
+          <button class="btn-chic-primary" type="button" onclick="closeCartDrawer(); window.location.hash='#catalogo';">
+            Ver Colección
+          </button>
+        </div>
+
+        <!-- Datos Opcionales de la Clienta -->
+        <div class="customer-optional-card" id="cartCustomerInfoBox">
+          <h4>Tus Datos (Opcional)</h4>
+          <input 
+            type="text" 
+            class="chic-input" 
+            id="cartCustomerName" 
+            placeholder="Tu Nombre (Ej. Laura Sánchez)"
+            aria-label="Tu nombre"
+          />
+          <input 
+            type="text" 
+            class="chic-input" 
+            id="cartCustomerCity" 
+            placeholder="Ciudad / Sector (Ej. Santo Domingo, Piantini)"
+            aria-label="Tu ciudad o sector"
+          />
+          <input 
+            type="text" 
+            class="chic-input" 
+            id="cartCustomerNotes" 
+            placeholder="Nota o consulta (Ej. ¿Tienen talla M por si acaso?)"
+            aria-label="Nota o consulta"
+          />
+        </div>
+
+        <!-- Previsualización del mensaje exacto de WhatsApp -->
+        <div class="preview-whatsapp-accordion" id="cartPreviewBox">
+          <div class="preview-toggle-header" id="togglePreviewAccordion">
+            <span>Ver mensaje exacto que se enviará</span>
+            <span class="arrow">▼</span>
+          </div>
+          <div id="whatsappPreviewContent" style="display: none;">
+            <div class="preview-rendered-box" id="whatsappPreviewText"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pie del Pedido con Total y Botón de WhatsApp -->
+      <div class="drawer-footer-zone">
+        <div class="total-summary-line">
+          <span class="total-summary-label">TOTAL:</span>
+          <span class="total-summary-price" id="cartTotalAmount">RD$0</span>
+        </div>
+
+        <!-- BOTÓN PRINCIPAL DE WHATSAPP -->
+        <button class="btn-whatsapp-order" id="whatsappCheckoutBtn" type="button">
+          <span>ENVIAR PEDIDO POR WHATSAPP</span> 💬
+        </button>
+
+        <button class="btn-keep-browsing" id="keepBrowsingBtn" type="button">
+          Continuar viendo la colección
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       MODAL DE AJUSTES (CONFIGURACIÓN WHATSAPP)
+       ========================================================================= -->
+  <div class="modal-backdrop" id="settingsModalBackdrop" role="dialog" aria-modal="true">
+    <div class="modal-chic-dialog" style="max-width: 440px; padding: 2rem;">
+      <button class="modal-close-icon-btn" id="settingsModalCloseBtn" type="button" aria-label="Cerrar ajustes">
+        ✕
+      </button>
+
+      <h3 class="serif-font" style="font-size: 1.5rem; margin-bottom: 0.5rem;">Configuración del Atelier</h3>
+      <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+        Indica el número de WhatsApp que recibirá los pedidos de tus clientas.
+      </p>
+
+      <form id="settingsForm">
+        <div style="margin-bottom: 1.25rem;">
+          <label style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.4rem;" for="settingsPhoneInput">
+            Número de WhatsApp:
+          </label>
+          <input 
+            type="text" 
+            class="chic-input" 
+            id="settingsPhoneInput" 
+            placeholder="18095550199" 
+            required 
+          />
+          <span style="font-size: 0.75rem; color: var(--text-light);">
+            Ejemplo República Dominicana: <code>18095550199</code> (sin espacios ni guiones).
+          </span>
+        </div>
+
+        <div style="margin-bottom: 1.5rem;">
+          <label style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.4rem;" for="settingsStoreNameInput">
+            Nombre de la Marca:
+          </label>
+          <input 
+            type="text" 
+            class="chic-input" 
+            id="settingsStoreNameInput" 
+            placeholder="AURA ATELIER RD" 
+            required 
+          />
+        </div>
+
+        <button type="submit" class="btn-chic-primary" style="width: 100%; justify-content: center;">
+          Guardar Cambios
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       BOTÓN FLOTANTE CHIC DE WHATSAPP
+       ========================================================================= -->
+  <button class="floating-whatsapp-chic" type="button" title="Consultar por WhatsApp" aria-label="Consultar por WhatsApp" onclick="openDirectWhatsAppInquiry()">
+    <span>💬</span>
+    <span class="text">¿Dudas con tu talla? Escríbenos</span>
+  </button>
+
+  <!-- Notificaciones Toast -->
+  <div class="toast-chic-container" id="toastContainer" aria-live="polite"></div>
+
+  <!-- JavaScript Modular -->
+  <script src="js/data.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/catalog.js"></script>
+  <script src="js/modal.js"></script>
+  <script src="js/whatsapp.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

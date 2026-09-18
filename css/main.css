@@ -1,0 +1,11 @@
+/* ==========================================================================
+   AURA ATELIER RD - ARCHIVO PRINCIPAL CSS MODULAR
+   Organización modular por componentes y secciones
+   ========================================================================== */
+@import 'variables.css';
+@import 'header.css';
+@import 'hero.css';
+@import 'catalog.css';
+@import 'modal.css';
+@import 'drawer.css';
+@import 'footer.css';

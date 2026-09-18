@@ -1,0 +1,13 @@
+/* ==========================================================================
+   AURA ATELIER RD - HOJA DE ESTILOS PRINCIPAL
+   El código ha sido modularizado en la carpeta /css para mayor orden y mantenimiento:
+   - css/variables.css : Paleta de colores, tipografía, variables y reset base
+   - css/header.css    : Barra de anuncios, cabecera y botón de la bolsa
+   - css/hero.css      : Portada editorial, marco en arco y pilares
+   - css/catalog.css   : Catálogo, filtros, buscador y tarjetas de prendas
+   - css/modal.css     : Modal de detalle de prenda y selección de variantes
+   - css/drawer.css    : Panel lateral "Mi Pedido", desglose y WhatsApp
+   - css/footer.css    : Cómo funciona, historia del atelier, footer y responsive
+   ========================================================================== */
+
+@import url('css/main.css');

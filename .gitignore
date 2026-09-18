@@ -1,0 +1,13 @@
+# Logs y temporales
+*.log
+npm-debug.log*
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Dependencias (si se agregan en el futuro)
+node_modules/
+dist/
+build/

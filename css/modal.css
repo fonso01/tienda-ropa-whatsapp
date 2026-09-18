@@ -1,0 +1,343 @@
+/* ==========================================================================
+   MODAL DE DETALLE DE PRENDA
+   Galería, selectores de talla/color, stepper y botón agregar
+   ========================================================================== */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: var(--bg-overlay);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-smooth);
+}
+
+.modal-backdrop.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-chic-dialog {
+  background: var(--bg-surface);
+  border-radius: var(--radius-lg);
+  max-width: 900px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: var(--shadow-floating);
+  position: relative;
+  transform: translateY(20px);
+  transition: transform var(--transition-smooth);
+}
+
+.modal-backdrop.active .modal-chic-dialog {
+  transform: translateY(0);
+}
+
+.modal-close-icon-btn {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  width: 38px;
+  height: 38px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-delicate);
+  border-radius: 50%;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  z-index: 10;
+  transition: all var(--transition-fast);
+}
+
+.modal-close-icon-btn:hover {
+  background: var(--text-main);
+  color: #fff;
+}
+
+.modal-product-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 2.75rem;
+  padding: 2.75rem;
+}
+
+.modal-gallery-side {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.modal-main-image-container {
+  width: 100%;
+  aspect-ratio: 3/4;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background-color: var(--bg-warm);
+}
+
+.modal-main-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.modal-thumb-row {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.modal-thumb-item {
+  width: 60px;
+  height: 75px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.modal-thumb-item.active {
+  border-color: var(--accent-terracotta);
+}
+
+.modal-thumb-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.modal-info-side {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-category-label {
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent-terracotta);
+  margin-bottom: 0.5rem;
+}
+
+.modal-title-heading {
+  font-family: var(--font-serif);
+  font-size: 1.85rem;
+  font-weight: 500;
+  line-height: 1.25;
+  margin-bottom: 0.75rem;
+}
+
+.modal-price-area {
+  display: flex;
+  align-items: baseline;
+  gap: 0.85rem;
+  margin-bottom: 1.25rem;
+}
+
+.modal-price-val {
+  font-size: 1.65rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.modal-price-old {
+  font-size: 1.05rem;
+  color: var(--text-light);
+  text-decoration: line-through;
+}
+
+/* Aviso de Confirmación por WhatsApp dentro del Modal */
+.modal-inquiry-explainer {
+  background-color: var(--bg-warm);
+  border-left: 3px solid var(--accent-terracotta);
+  padding: 0.85rem 1.15rem;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  margin-bottom: 1.5rem;
+}
+
+.modal-inquiry-explainer .title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent-terracotta);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.2rem;
+}
+
+.modal-inquiry-explainer .body {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+}
+
+.modal-desc-text {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+  margin-bottom: 1.75rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-delicate);
+}
+
+/* Selectores de Talla y Color */
+.variant-selection-group {
+  margin-bottom: 1.5rem;
+}
+
+.variant-label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.75rem;
+}
+
+.variant-label-name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-main);
+}
+
+.variant-selected-value {
+  font-size: 0.85rem;
+  color: var(--accent-terracotta);
+  font-weight: 500;
+}
+
+.size-chips-container {
+  display: flex;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+}
+
+.size-chic-btn {
+  min-width: 44px;
+  height: 42px;
+  padding: 0 0.85rem;
+  border-radius: var(--radius-pill);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-delicate);
+  color: var(--text-main);
+  font-size: 0.88rem;
+  font-weight: 500;
+  transition: all var(--transition-fast);
+}
+
+.size-chic-btn:hover {
+  border-color: var(--text-main);
+}
+
+.size-chic-btn.selected {
+  background-color: var(--text-main);
+  color: #fff;
+  border-color: var(--text-main);
+}
+
+.color-chips-container {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.color-chic-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.95rem;
+  border-radius: var(--radius-pill);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-delicate);
+  color: var(--text-main);
+  font-size: 0.85rem;
+  transition: all var(--transition-fast);
+}
+
+.color-chic-btn:hover {
+  border-color: var(--text-main);
+}
+
+.color-chic-btn.selected {
+  border-color: var(--accent-terracotta);
+  background-color: var(--bg-warm);
+}
+
+.color-circle {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+/* Stepper y Agregar al Pedido */
+.modal-actions-bar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+.stepper-pill {
+  display: flex;
+  align-items: center;
+  background-color: var(--bg-warm);
+  border-radius: var(--radius-pill);
+  height: 48px;
+  padding: 0 0.25rem;
+}
+
+.stepper-btn {
+  width: 38px;
+  height: 38px;
+  background: transparent;
+  color: var(--text-main);
+  font-size: 1.1rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color var(--transition-fast);
+}
+
+.stepper-btn:hover {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.stepper-val {
+  width: 32px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.btn-add-order-chic {
+  flex: 1;
+  height: 48px;
+  background-color: var(--text-main);
+  color: #fff;
+  border-radius: var(--radius-pill);
+  font-size: 0.92rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  transition: all var(--transition-fast);
+}
+
+.btn-add-order-chic:hover {
+  background-color: var(--accent-terracotta);
+  box-shadow: 0 6px 20px rgba(168, 88, 69, 0.25);
+  transform: translateY(-1px);
+}
