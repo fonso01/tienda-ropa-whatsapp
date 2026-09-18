@@ -4,6 +4,7 @@ Plataforma e-commerce con diseño femenino casual, catálogo de prendas para sal
 
 - 🌐 **Sitio Web en Vivo (GitHub Pages)**: [https://fonso01.github.io/tienda-ropa-whatsapp/](https://fonso01.github.io/tienda-ropa-whatsapp/)
 - 📦 **Repositorio en GitHub**: [https://github.com/fonso01/tienda-ropa-whatsapp](https://github.com/fonso01/tienda-ropa-whatsapp)
+- 📋 **Guía de Administración de Artículos**: [ADMINISTRACION_CATALOGO.md](file:///c:/Users/E7450%20i7%2016GB%20RAM/Documents/tienda/ADMINISTRACION_CATALOGO.md)
 
 ---
 
@@ -14,8 +15,9 @@ El código está completamente separado y organizado en módulos independientes 
 ```text
 tienda/
 │
-├── index.html            # Estructura semántica principal y marcado de modales
-├── README.md             # Documentación técnica y guía de personalización
+├── index.html                  # Estructura semántica principal y marcado de modales
+├── README.md                   # Documentación técnica y guía de inicio
+├── ADMINISTRACION_CATALOGO.md  # Guía de gestión de artículos (Cliente vs Administrador)
 │
 ├── css/                  # Estilos modulares organizados por componentes
 │   ├── main.css          # Archivo maestro que importa todos los submódulos
