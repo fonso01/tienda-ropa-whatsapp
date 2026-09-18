@@ -43,7 +43,6 @@
       <nav class="nav-links" aria-label="Navegación principal">
         <a href="#hero" class="nav-link active">Inicio</a>
         <a href="#catalogo" class="nav-link">Colección</a>
-        <a href="#destacados" class="nav-link">Favoritos</a>
         <a href="#como-funciona" class="nav-link">Cómo Funciona</a>
         <a href="#somos-casual" class="nav-link">Nosotros</a>
       </nav>
@@ -135,22 +134,6 @@
       </div>
     </section>
 
-    <!-- =======================================================================
-         PIEZAS DESTACADAS (FAVORITOS DE LA TEMPORADA)
-         ======================================================================= -->
-    <section class="container" id="destacados" style="padding-top: 2rem; padding-bottom: 3.5rem;">
-      <div class="section-editorial-header">
-        <span class="section-label">Selección Exclusiva</span>
-        <h2 class="section-headline">Piezas <em>Destacadas</em></h2>
-        <p class="section-subtext">
-          Los diseños más pedidos de la temporada. Precios claros en Pesos Dominicanos (RD$).
-        </p>
-      </div>
-
-      <div class="product-grid-chic" id="featuredProductsGrid">
-        <!-- Renderizado dinámico vía JavaScript -->
-      </div>
-    </section>
 
     <!-- =======================================================================
          AVISO EDITORIAL DE DISPONIBILIDAD (CRÍTICO)
@@ -201,7 +184,7 @@
         <div style="display: flex; align-items: center; gap: 0.75rem;">
           <label for="catalogSortSelect" style="font-size: 0.85rem; color: var(--text-muted);">Ordenar por:</label>
           <select class="sort-chic-select" id="catalogSortSelect" aria-label="Ordenar prendas">
-            <option value="featured">Destacados</option>
+            <option value="default">Predeterminado</option>
             <option value="price-low">Precio: Menor a Mayor</option>
             <option value="price-high">Precio: Mayor a Menor</option>
             <option value="name-asc">Nombre (A - Z)</option>
@@ -344,7 +327,7 @@
           <div class="footer-col-title">Somos Casual</div>
           <ul class="footer-links-list">
             <li><a href="#hero">Inicio</a></li>
-            <li><a href="#destacados">Favoritos</a></li>
+            <li><a href="#catalogo">Colección</a></li>
             <li><a href="#como-funciona">Cómo Funciona</a></li>
             <li><a href="#somos-casual">Nuestra Filosofía</a></li>
           </ul>

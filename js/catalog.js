@@ -3,15 +3,6 @@
  * Filtrado por categorías, búsqueda en tiempo real, ordenación y renderizado de tarjetas.
  */
 
-function renderFeaturedProducts() {
-  const container = document.getElementById('featuredProductsGrid');
-  if (!container || typeof PRODUCTS_DATA === 'undefined') return;
-
-  const featured = PRODUCTS_DATA.filter(p => p.isFeatured);
-  container.innerHTML = featured.map(p => createProductCardHtml(p)).join('');
-  attachProductCardEvents(container);
-}
-
 function renderCatalogProducts() {
   const container = document.getElementById('catalogProductsGrid');
   const countEl = document.getElementById('catalogCount');
@@ -45,9 +36,9 @@ function renderCatalogProducts() {
     case 'name-asc':
       filtered.sort((a, b) => a.name.localeCompare(b.name));
       break;
-    case 'featured':
+    case 'default':
     default:
-      filtered.sort((a, b) => (b.isFeatured ? 1 : 0) - (a.isFeatured ? 1 : 0));
+      // Conservar orden de catálogo
       break;
   }
 

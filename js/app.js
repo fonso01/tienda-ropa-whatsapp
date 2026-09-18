@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // 1. Inicializar Catálogo y Filtros
   if (typeof initCategoryTabs === 'function') initCategoryTabs();
   if (typeof initSearchAndSort === 'function') initSearchAndSort();
-  if (typeof renderFeaturedProducts === 'function') renderFeaturedProducts();
   if (typeof renderCatalogProducts === 'function') renderCatalogProducts();
 
   // 2. Inicializar Modal de Prenda

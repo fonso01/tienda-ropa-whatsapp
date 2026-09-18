@@ -10,7 +10,7 @@ var APP_STATE = window.APP_STATE = window.APP_STATE || {
   storeName: localStorage.getItem('somos_casual_store_name') || localStorage.getItem('aura_store_name') || 'SOMOS CASUAL',
   selectedCategory: 'Todos',
   searchQuery: '',
-  sortBy: 'featured',
+  sortBy: 'default',
   modalProduct: null,
   modalSelectedSize: null,
   modalSelectedColor: null,
