@@ -1,6 +1,9 @@
 # AURA ATELIER RD - Tienda Femenina & Pedidos por WhatsApp 🛍️💬
 
-Plataforma e-commerce con diseño editorial femenino exclusivo, catálogo de prendas en lino y satín, y confirmación de pedidos vía WhatsApp.
+Plataforma e-commerce con diseño editorial femenino exclusivo, catálogo de prendas casuales para salir y andar, y confirmación de pedidos vía WhatsApp.
+
+- 🌐 **Sitio Web en Vivo (GitHub Pages)**: [https://fonso01.github.io/tienda-ropa-whatsapp/](https://fonso01.github.io/tienda-ropa-whatsapp/)
+- 📦 **Repositorio en GitHub**: [https://github.com/fonso01/tienda-ropa-whatsapp](https://github.com/fonso01/tienda-ropa-whatsapp)
 
 ---
 
