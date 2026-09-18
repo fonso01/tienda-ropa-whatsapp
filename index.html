@@ -57,11 +57,6 @@
           <span class="client-fav-count" style="background: var(--accent-terracotta); color: #fff; border-radius: 999px; padding: 0.1rem 0.45rem; font-size: 0.7rem; font-weight: 700;">0</span>
         </button>
 
-        <!-- Ajuste de WhatsApp -->
-        <button class="btn-icon-minimal" id="openSettingsBtn" type="button" title="Configurar número WhatsApp" aria-label="Configurar WhatsApp">
-          ⚙
-        </button>
-
         <!-- Botón Mi Pedido / Carrito -->
         <button class="btn-cart-chic" id="headerCartBtn" type="button" data-action="open-cart" aria-label="Ver mi pedido">
           <span>Bolsa:</span>
@@ -632,56 +627,7 @@
     </div>
   </div>
 
-  <!-- =========================================================================
-       MODAL DE AJUSTES (CONFIGURACIÓN WHATSAPP)
-       ========================================================================= -->
-  <div class="modal-backdrop" id="settingsModalBackdrop" role="dialog" aria-modal="true">
-    <div class="modal-chic-dialog" style="max-width: 440px; padding: 2rem;">
-      <button class="modal-close-icon-btn" id="settingsModalCloseBtn" type="button" aria-label="Cerrar ajustes">
-        ✕
-      </button>
 
-      <h3 class="serif-font" style="font-size: 1.5rem; margin-bottom: 0.5rem;">Configuración de la Tienda</h3>
-      <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem;">
-        Indica el número de WhatsApp que recibirá los pedidos de tus clientas.
-      </p>
-
-      <form id="settingsForm">
-        <div style="margin-bottom: 1.25rem;">
-          <label style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.4rem;" for="settingsPhoneInput">
-            Número de WhatsApp:
-          </label>
-          <input 
-            type="text" 
-            class="chic-input" 
-            id="settingsPhoneInput" 
-            placeholder="18095550199" 
-            required 
-          />
-          <span style="font-size: 0.75rem; color: var(--text-light);">
-            Ejemplo República Dominicana: <code>18095550199</code> (sin espacios ni guiones).
-          </span>
-        </div>
-
-        <div style="margin-bottom: 1.5rem;">
-          <label style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.4rem;" for="settingsStoreNameInput">
-            Nombre de la Tienda:
-          </label>
-          <input 
-            type="text" 
-            class="chic-input" 
-            id="settingsStoreNameInput" 
-            placeholder="SOMOS CASUAL RD" 
-            required 
-          />
-        </div>
-
-        <button type="submit" class="btn-chic-primary" style="width: 100%; justify-content: center;">
-          Guardar Cambios
-        </button>
-      </form>
-    </div>
-  </div>
 
   <!-- =========================================================================
        BOTÓN FLOTANTE CHIC DE WHATSAPP

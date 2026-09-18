@@ -147,7 +147,8 @@ Quisiera confirmar disponibilidad.
 
 ## ⚙️ Cambiar el Número de WhatsApp Receptor
 
-Puedes cambiar el número que recibe los pedidos en cualquier momento:
-1. En la página web principal, pulsa el ícono de engranaje (**⚙**) en la barra superior.
-2. Ingresa tu número telefónico con código de país (Ej. `18095550199` para República Dominicana).
-3. Pulsa **Guardar Cambios**. A partir de ese momento, todos los pedidos se enviarán a ese número.
+Puedes cambiar el número que recibe los pedidos en cualquier momento desde el panel privado de administración:
+1. Ingresa a [`admin.html`](file:///c:/Users/E7450%20i7%2016GB%20RAM/Documents/tienda/admin.html) e introduce tu PIN (por defecto `1234`).
+2. Ve a la pestaña **"⚙️ Ajustes de Tienda & WhatsApp"**.
+3. Ingresa tu nuevo número telefónico con código de país (Ej. `18095550199` para República Dominicana).
+4. Pulsa **Guardar Ajustes de Tienda**. A partir de ese momento, todos los pedidos que envíen las clientas se dirigirán a ese número.

@@ -80,8 +80,8 @@ tienda/
    Quisiera confirmar disponibilidad.
    ```
 
-4. **Configuración Dinámica de WhatsApp**:
-   - Botón de engranaje (⚙️) en la cabecera para cambiar el número de teléfono del negocio y el nombre de la marca sin editar código.
+4. **Configuración Segura de WhatsApp y Tienda**:
+   - Gestionada exclusivamente desde el **Panel de Administración (`admin.html`)** protegido por PIN para que las clientas no tengan acceso a modificar ajustes de la tienda.
 
 ---
 
