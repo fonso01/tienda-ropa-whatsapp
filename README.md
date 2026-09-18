@@ -2,9 +2,9 @@
 
 Plataforma e-commerce con diseño femenino casual, catálogo de prendas para salir y andar, y confirmación de pedidos vía WhatsApp.
 
-- 🌐 **Sitio Web en Vivo (GitHub Pages)**: [https://fonso01.github.io/tienda-ropa-whatsapp/](https://fonso01.github.io/tienda-ropa-whatsapp/)
-- 🔐 **Panel de Administración en Vivo**: [https://fonso01.github.io/tienda-ropa-whatsapp/admin.html](https://fonso01.github.io/tienda-ropa-whatsapp/admin.html) *(PIN por defecto: 1234)*
-- 📦 **Repositorio en GitHub**: [https://github.com/fonso01/tienda-ropa-whatsapp](https://github.com/fonso01/tienda-ropa-whatsapp)
+- 💻 **Entorno Local (Desarrollo)**: `http://localhost:4173/`
+- 🔐 **Panel de Administración Local**: `http://localhost:4173/admin.html` *(PIN: `1234`)*
+- 🔒 **Estado del Proyecto**: Modo **En Preparación / Privado** activo (el catálogo no es visible al público mientras lo preparas).
 - 📋 **Guía de Administración de Artículos**: [ADMINISTRACION_CATALOGO.md](file:///c:/Users/E7450%20i7%2016GB%20RAM/Documents/tienda/ADMINISTRACION_CATALOGO.md)
 
 ---

@@ -280,7 +280,9 @@ function getStoreSettings() {
       storeSubtitle: 'SANTO DOMINGO • RD',
       whatsappNumber: '18095550199',
       announcementText: 'Envíos a todo el país • Atención personalizada y confirmación de tallas vía WhatsApp',
-      adminPin: '1234'
+      adminPin: '1234',
+      isStoreClosed: true,
+      maintenanceMessage: 'Estamos preparando nuestra nueva colección casual para salir y andar. Muy pronto disponible.'
     };
   }
   return {
@@ -288,7 +290,9 @@ function getStoreSettings() {
     storeSubtitle: localStorage.getItem('somos_casual_store_subtitle') || 'SANTO DOMINGO • RD',
     whatsappNumber: localStorage.getItem('somos_casual_whatsapp_number') || '18095550199',
     announcementText: localStorage.getItem('somos_casual_announcement') || 'Envíos a todo el país • Atención personalizada y confirmación de tallas vía WhatsApp',
-    adminPin: localStorage.getItem('somos_casual_admin_pin') || '1234'
+    adminPin: localStorage.getItem('somos_casual_admin_pin') || '1234',
+    isStoreClosed: localStorage.getItem('somos_casual_is_closed') !== 'false', // Por defecto TRUE (Privada)
+    maintenanceMessage: localStorage.getItem('somos_casual_maintenance_msg') || 'Estamos preparando nuestra nueva colección casual para salir y andar. Muy pronto disponible.'
   };
 }
 
@@ -299,6 +303,8 @@ function saveStoreSettings(settings) {
   if (settings.whatsappNumber) localStorage.setItem('somos_casual_whatsapp_number', settings.whatsappNumber);
   if (settings.announcementText) localStorage.setItem('somos_casual_announcement', settings.announcementText);
   if (settings.adminPin) localStorage.setItem('somos_casual_admin_pin', settings.adminPin);
+  if (typeof settings.isStoreClosed !== 'undefined') localStorage.setItem('somos_casual_is_closed', settings.isStoreClosed ? 'true' : 'false');
+  if (settings.maintenanceMessage) localStorage.setItem('somos_casual_maintenance_msg', settings.maintenanceMessage);
 }
 
 var PRODUCTS_DATA = getStoreCatalog();

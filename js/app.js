@@ -22,4 +22,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 5. Inicializar Panel de la Clienta (Mi Espacio)
   if (typeof initClientPanel === 'function') initClientPanel();
+
+  // 6. Validar Estado de la Tienda (En Construcción / Privada)
+  checkStoreAccess();
 });
+
+function checkStoreAccess() {
+  const settings = typeof getStoreSettings === 'function' ? getStoreSettings() : { isStoreClosed: true };
+  const isAdminAuthenticated = sessionStorage.getItem('somos_casual_admin_auth') === 'true';
+  const screen = document.getElementById('comingSoonScreen');
+  const msgEl = document.getElementById('comingSoonMessage');
+
+  if (settings.isStoreClosed && !isAdminAuthenticated) {
+    if (screen) {
+      screen.style.display = 'flex';
+      if (msgEl && settings.maintenanceMessage) {
+        msgEl.textContent = settings.maintenanceMessage;
+      }
+      document.body.style.overflow = 'hidden';
+    }
+  } else {
+    if (screen) {
+      screen.style.display = 'none';
+      document.body.style.overflow = '';
+    }
+  }
+}

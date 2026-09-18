@@ -66,8 +66,8 @@
       </div>
 
       <div class="admin-nav-actions">
-        <a href="index.html" target="_blank" class="btn-admin-action btn-admin-secondary" title="Abrir tienda en nueva pestaña">
-          <span>👁️ Ver Tienda Pública</span>
+        <a href="index.html" target="_blank" class="btn-admin-action btn-admin-secondary" title="Abrir vista previa en nueva pestaña">
+          <span>👁️ Vista Previa</span>
         </a>
         <button class="btn-admin-action btn-admin-danger" type="button" onclick="handleAdminLogout()" title="Cerrar sesión de administrador">
           <span>Salir</span>
@@ -190,6 +190,17 @@
         </p>
 
         <form id="adminSettingsForm">
+          <!-- MODO PRIVADO / EN CONSTRUCCIÓN -->
+          <div class="admin-form-group" style="padding: 1.25rem; background: #fff8eb; border: 1px solid #fde68a; border-radius: 10px; margin-bottom: 1.5rem;">
+            <label style="display: flex; align-items: center; gap: 0.6rem; cursor: pointer; margin-bottom: 0.2rem;">
+              <input type="checkbox" id="setIsStoreClosed" style="width: 18px; height: 18px; cursor: pointer;" />
+              <span style="font-weight: 700; font-size: 0.95rem; color: #92400e;">🔒 Ocultar Tienda al Público (Modo En Preparación)</span>
+            </label>
+            <span class="admin-form-help" style="color: #78350f;">
+              Mientras esté marcado, cualquier visitante que ingrese a la tienda verá la pantalla de "Próximamente" y no podrá ver tus prendas, precios ni fotos.
+            </span>
+          </div>
+
           <div class="admin-form-group">
             <label for="setWhatsappNumber">Número de WhatsApp Receptor</label>
             <input 

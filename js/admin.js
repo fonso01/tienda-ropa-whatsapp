@@ -406,6 +406,7 @@ function initSettingsForm() {
   if (document.getElementById('setWhatsappNumber')) document.getElementById('setWhatsappNumber').value = settings.whatsappNumber;
   if (document.getElementById('setAnnouncement')) document.getElementById('setAnnouncement').value = settings.announcementText;
   if (document.getElementById('setAdminPin')) document.getElementById('setAdminPin').value = settings.adminPin || '1234';
+  if (document.getElementById('setIsStoreClosed')) document.getElementById('setIsStoreClosed').checked = Boolean(settings.isStoreClosed);
 
   if (form) {
     form.addEventListener('submit', (e) => {
@@ -416,11 +417,12 @@ function initSettingsForm() {
         storeSubtitle: document.getElementById('setStoreSubtitle').value.trim() || 'SANTO DOMINGO • RD',
         whatsappNumber: document.getElementById('setWhatsappNumber').value.trim().replace(/[^0-9]/g, '') || '18095550199',
         announcementText: document.getElementById('setAnnouncement').value.trim(),
-        adminPin: document.getElementById('setAdminPin').value.trim() || '1234'
+        adminPin: document.getElementById('setAdminPin').value.trim() || '1234',
+        isStoreClosed: document.getElementById('setIsStoreClosed') ? document.getElementById('setIsStoreClosed').checked : true
       };
 
       saveStoreSettings(newSettings);
-      showAdminToast('Ajustes de tienda guardados exitosamente', '⚙️');
+      showAdminToast('Ajustes guardados. Estado de privacidad actualizado.', '⚙️');
     });
   }
 }

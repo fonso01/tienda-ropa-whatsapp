@@ -8,7 +8,7 @@ Esta guía explica la arquitectura de gestión del catálogo de **SOMOS CASUAL**
 
 En una tienda con ventas coordinadas por WhatsApp, la experiencia del cliente debe ser visualmente impecable, ágil y sin fricciones de registro, mientras que la administración requiere control total sobre el catálogo:
 
-| Característica | 🛍️ Vista del Cliente (Web Pública) | 🔐 Vista del Administrador |
+| Característica | 🛍️ Vista del Cliente (Tienda) | 🔐 Vista del Administrador |
 | :--- | :--- | :--- |
 | **Acceso** | Libre, cualquier clienta desde su móvil o PC | Privado (mediante panel protegido o archivo de datos) |
 | **Visualización** | Catálogo con fotos, filtros, buscador y badges de tallas | Lista completa de artículos con opciones de edición |
