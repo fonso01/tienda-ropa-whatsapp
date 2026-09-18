@@ -7,7 +7,7 @@
 var APP_STATE = window.APP_STATE = window.APP_STATE || {
   cart: JSON.parse(localStorage.getItem('aura_cart') || '[]'),
   whatsappNumber: localStorage.getItem('aura_whatsapp_number') || '18095550199',
-  storeName: localStorage.getItem('aura_store_name') || 'AURA ATELIER RD',
+  storeName: localStorage.getItem('aura_store_name') || 'SOMOS CASUAL',
   selectedCategory: 'Todos',
   searchQuery: '',
   sortBy: 'featured',

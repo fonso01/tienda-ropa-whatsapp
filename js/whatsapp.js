@@ -128,6 +128,6 @@ function closeSettingsModal() {
 
 function openDirectWhatsAppInquiry() {
   const phone = (APP_STATE.whatsappNumber || '18095550199').replace(/[^0-9]/g, '');
-  const greeting = `Hola ${APP_STATE.storeName || 'AURA ATELIER'}, quisiera hacerles una consulta sobre una prenda y disponibilidad de tallas.`;
+  const greeting = `Hola ${APP_STATE.storeName || 'SOMOS CASUAL'}, quisiera hacerles una consulta sobre una prenda y disponibilidad de tallas.`;
   window.open(`https://wa.me/${phone}?text=${encodeURIComponent(greeting)}`, '_blank');
 }
