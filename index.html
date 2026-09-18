@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SOMOS CASUAL | Ropa Casual Femenina para Salir y Andar</title>
-  <meta name="description" content="Tienda femenina Somos Casual. Ropa casual para salir, andar y tu día a día en República Dominicana. Confirma disponibilidad y coordina delivery por WhatsApp.">
+  <meta name="description" content="Tienda de moda femenina Somos Casual. Ropa casual para salir, andar y disfrutar en República Dominicana. Confirma disponibilidad y pedidos vía WhatsApp.">
   
-  <!-- Favicon SVG Chic -->
+  <!-- Favicon Chic -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220%22%3E<text y=%2226%22 font-size=%2226%22>✨</text></svg>">
 
   <!-- Google Fonts: Editorial Serif (Playfair Display) + Sans Limpio (Plus Jakarta Sans) -->
@@ -14,13 +14,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Estilos Femeninos Editoriales Modulares -->
+  <!-- Estilos Modulares -->
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/client-panel.css">
+</head>
 <body>
 
   <!-- =========================================================================
-       PANTALLA DE PROTECCIÓN: MODO EN CONSTRUCCIÓN / PRIVADO
+       MODO EN CONSTRUCCIÓN / ADMINISTRACIÓN PRIVADA (SÓLO SI ESTÁ ACTIVADO)
        ========================================================================= -->
   <div class="coming-soon-screen" id="comingSoonScreen" style="display: none;">
     <div class="coming-soon-card">
@@ -29,7 +30,7 @@
       <div class="coming-soon-sub store-subtitle-text">SANTO DOMINGO • RD</div>
       <div class="coming-soon-badge">🔒 Tienda en Preparación</div>
       <p class="coming-soon-message" id="comingSoonMessage">
-        Estamos afinando las piezas y detalles de nuestra nueva colección casual para salir y andar. Muy pronto estaremos abiertos para coordinar tus pedidos.
+        Estamos afinando las piezas de nuestra colección.
       </p>
       <div class="coming-soon-actions">
         <a href="admin.html" class="btn-chic-primary" style="padding: 0.75rem 1.6rem; font-size: 0.88rem;">
@@ -40,278 +41,263 @@
   </div>
 
   <!-- =========================================================================
-       BARRA SUPERIOR (DISCRETA Y REFINADA)
-       ========================================================================= -->
-  <aside class="top-announcement" aria-label="Avisos de Somos Casual">
-    <span class="sparkle">✦</span>
-    <span>Envíos a todo el país • <strong>Atención personalizada y confirmación de tallas vía WhatsApp</strong></span>
-    <span class="sparkle">✦</span>
-  </aside>
-
-  <!-- =========================================================================
-       CABECERA DE LA TIENDA
+       1. CABECERA LIMPIA (DESKTOP & MÓVIL)
        ========================================================================= -->
   <header class="header-main" id="headerMain">
     <div class="container nav-wrapper">
+      <!-- Botón Menú Hamburguesa Móvil (☰) -->
+      <button class="mobile-menu-toggle" id="mobileMenuToggle" type="button" aria-label="Abrir menú de navegación">
+        ☰
+      </button>
+
       <!-- Marca Somos Casual -->
       <a href="#hero" class="logo-brand" aria-label="Inicio Somos Casual">
         <span class="brand-title store-name-text">SOMOS CASUAL</span>
-        <span class="brand-subtitle">SANTO DOMINGO • RD</span>
       </a>
 
       <!-- Enlaces de Navegación Editorial -->
       <nav class="nav-links" aria-label="Navegación principal">
         <a href="#hero" class="nav-link active">Inicio</a>
-        <a href="#catalogo" class="nav-link">Colección</a>
-        <a href="#como-funciona" class="nav-link">Cómo Funciona</a>
+        <a href="#catalogo" class="nav-link">Tienda</a>
         <a href="#somos-casual" class="nav-link">Nosotros</a>
       </nav>
 
-      <!-- Acciones de Cabecera -->
+      <!-- Acciones de Cabecera: ♡ y 🛒 -->
       <div class="header-actions">
-        <!-- Espacio de la Clienta -->
-        <button class="btn-client-space" id="openClientPanelBtn" type="button" title="Mi Espacio / Mis Favoritos" aria-label="Abrir mi espacio">
-          <span>👤</span>
-          <span>Mi Espacio</span>
-          <span class="client-fav-count" style="background: var(--accent-terracotta); color: #fff; border-radius: 999px; padding: 0.1rem 0.45rem; font-size: 0.7rem; font-weight: 700;">0</span>
+        <!-- Botón Mis Favoritos -->
+        <button class="btn-header-icon" id="headerFavBtn" type="button" title="Mis Favoritos" aria-label="Ver mis favoritos">
+          <span>♡</span>
+          <span class="header-icon-badge client-fav-count">0</span>
         </button>
 
-        <!-- Botón Mi Pedido / Carrito -->
-        <button class="btn-cart-chic" id="headerCartBtn" type="button" data-action="open-cart" aria-label="Ver mi pedido">
-          <span>Bolsa:</span>
-          <span id="cartHeaderTotal">RD$0</span>
-          <span class="cart-chic-badge" id="cartBadgeCounter">0</span>
+        <!-- Botón Mi Pedido / Bolsa -->
+        <button class="btn-header-icon" id="headerCartBtn" type="button" data-action="open-cart" title="Mi Pedido" aria-label="Ver mi pedido">
+          <span>🛒</span>
+          <span class="header-icon-badge" id="cartBadgeCounter">0</span>
         </button>
       </div>
     </div>
   </header>
 
-  <!-- =========================================================================
-       HERO EDITORIAL (EDITORIAL FEMENINO & ORGÁNICO)
-       ========================================================================= -->
+  <!-- Drawer / Menú Móvil Desplegable -->
+  <div class="mobile-nav-backdrop" id="mobileNavBackdrop">
+    <div class="mobile-nav-drawer">
+      <div class="mobile-nav-header">
+        <span class="brand-title store-name-text" style="font-size: 1.25rem;">SOMOS CASUAL</span>
+        <button class="mobile-nav-close" id="mobileNavClose" type="button" aria-label="Cerrar menú">✕</button>
+      </div>
+      <nav class="mobile-nav-links">
+        <a href="#hero">Inicio</a>
+        <a href="#categorias">Categorías</a>
+        <a href="#catalogo">Tienda</a>
+        <a href="#como-comprar">¿Cómo comprar?</a>
+        <a href="#somos-casual">Nosotros</a>
+        <a href="#" data-action="open-favorites">Mis Favoritos (<span class="client-fav-count">0</span>)</a>
+      </nav>
+      <div class="mobile-nav-footer">
+        <div>Santo Domingo, República Dominicana</div>
+        <a href="admin.html" style="color: var(--accent-soft); font-weight: 600; text-decoration: none;">Acceso Administrador 🔐</a>
+      </div>
+    </div>
+  </div>
+
   <main>
-    <section class="hero-editorial" id="hero">
+    <!-- =======================================================================
+         2. HERO MUCHO MÁS VISUAL
+         ======================================================================= -->
+    <section class="hero-visual-section" id="hero">
+      <div class="hero-visual-bg">
+        <img 
+          src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1800&q=85" 
+          alt="Nueva Colección Somos Casual - Moda casual para salir y andar" 
+        />
+      </div>
+      <div class="hero-visual-overlay"></div>
+      <div class="hero-content-box">
+        <span class="hero-label-top">Colección 2025 - 2026</span>
+        <h1 class="hero-title-main">Nueva Colección</h1>
+        <p class="hero-subtitle-clean">Estilo para salir y andar.</p>
+        <a href="#catalogo" class="btn-hero-cta">Ver Colección</a>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         3. EXPLORA LA COLECCIÓN (CATEGORÍAS VISUALES INMEDIATAS)
+         ======================================================================= -->
+    <section class="categories-showcase-section" id="categorias">
       <div class="container">
-        <div class="hero-grid">
-          <!-- Texto Editorial -->
-          <div class="hero-copy">
-            <span class="hero-tagline">✦ Outfits Casuales para Salir & Andar</span>
-            <h1 class="hero-headline">
-              Estilo diario, cómodo y con onda para <em>salir y andar</em>
-            </h1>
-            <p class="hero-description">
-              Prendas versátiles para salir con amigas, ir al mall, cenar o andar relajada sin perder el toque chic. Elige tus favoritos y confirma tallas y delivery directamente por WhatsApp.
-            </p>
-
-            <div class="hero-action-row">
-              <a href="#catalogo" class="btn-chic-primary">
-                <span>Ver Outfits Casuales</span> →
-              </a>
-              <a href="#como-funciona" class="btn-chic-link">
-                <span>¿Cómo funciona el pedido?</span>
-              </a>
-            </div>
-
-            <!-- Tres pilares sutiles -->
-            <div class="hero-pillars-bar">
-              <div class="pillar-item">
-                <span class="pillar-bullet">✦</span>
-                <div class="pillar-text">
-                  <h4>Comodidad Real</h4>
-                  <p>Prendas y tenis pensados para andar todo el día sin cansancio</p>
-                </div>
-              </div>
-              <div class="pillar-item">
-                <span class="pillar-bullet">✦</span>
-                <div class="pillar-text">
-                  <h4>Fáciles de Combinar</h4>
-                  <p>Looks que pasan del día a la noche con un solo cambio de accesorio</p>
-                </div>
-              </div>
-              <div class="pillar-item">
-                <span class="pillar-bullet">✦</span>
-                <div class="pillar-text">
-                  <h4>Asesoría de Tallas</h4>
-                  <p>Te decimos exactamente cómo ajusta cada prenda por WhatsApp</p>
-                </div>
-              </div>
-            </div>
+        <div class="categories-header">
+          <h2 class="categories-title">Explora la Colección</h2>
+        </div>
+        <div class="categories-grid">
+          <!-- TOPS -->
+          <div class="category-visual-card" onclick="selectCategoryAndScroll('Tops & Camisas')">
+            <img class="category-visual-img" src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=600&q=80" alt="Tops & Camisas" loading="lazy" />
+            <div class="category-visual-overlay"></div>
+            <span class="category-visual-name">Tops</span>
           </div>
 
-          <!-- Imagen con Marco en Arco Femenino -->
-          <div class="hero-visual">
-            <div class="hero-image-frame">
-              <img 
-                src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1000&q=80" 
-                alt="Outfits casuales para salir y andar Somos Casual" 
+          <!-- JEANS -->
+          <div class="category-visual-card" onclick="selectCategoryAndScroll('Jeans & Pantalones')">
+            <img class="category-visual-img" src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=600&q=80" alt="Jeans & Pantalones" loading="lazy" />
+            <div class="category-visual-overlay"></div>
+            <span class="category-visual-name">Jeans</span>
+          </div>
+
+          <!-- VESTIDOS -->
+          <div class="category-visual-card" onclick="selectCategoryAndScroll('Vestidos Casuales')">
+            <img class="category-visual-img" src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=600&q=80" alt="Vestidos Casuales" loading="lazy" />
+            <div class="category-visual-overlay"></div>
+            <span class="category-visual-name">Vestidos</span>
+          </div>
+
+          <!-- SETS -->
+          <div class="category-visual-card" onclick="selectCategoryAndScroll('Sets & Conjuntos')">
+            <img class="category-visual-img" src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=600&q=80" alt="Sets & Conjuntos" loading="lazy" />
+            <div class="category-visual-overlay"></div>
+            <span class="category-visual-name">Sets</span>
+          </div>
+
+          <!-- SNEAKERS -->
+          <div class="category-visual-card" onclick="selectCategoryAndScroll('Sneakers & Calzado')">
+            <img class="category-visual-img" src="https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=600&q=80" alt="Sneakers & Calzado" loading="lazy" />
+            <div class="category-visual-overlay"></div>
+            <span class="category-visual-name">Sneakers</span>
+          </div>
+
+          <!-- ACCESORIOS -->
+          <div class="category-visual-card" onclick="selectCategoryAndScroll('Bolsos & Accesorios')">
+            <img class="category-visual-img" src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=600&q=80" alt="Bolsos & Accesorios" loading="lazy" />
+            <div class="category-visual-overlay"></div>
+            <span class="category-visual-name">Accesorios</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         4 y 5. CATÁLOGO CON PRENDAS COMO PROTAGONISTAS (FOTOS 4:5 Y HOVER)
+         ======================================================================= -->
+    <section class="catalog-section" id="catalogo">
+      <div class="container">
+        <div class="catalog-editorial-header">
+          <span class="catalog-badge-pre">Nuestra Colección</span>
+          <h2 class="catalog-headline">NUEVA COLECCIÓN</h2>
+          <p class="catalog-subtext">Descubre nuestros favoritos</p>
+        </div>
+
+        <!-- Barra de Filtros y Búsqueda Limpia -->
+        <div class="catalog-controls-bar">
+          <nav class="catalog-nav-bar" role="tablist" aria-label="Categorías de la colección">
+            <button class="category-tab-btn active" type="button" data-category="Todos">Todas</button>
+            <button class="category-tab-btn" type="button" data-category="Tops & Camisas">Tops & Camisas</button>
+            <button class="category-tab-btn" type="button" data-category="Jeans & Pantalones">Jeans & Pantalones</button>
+            <button class="category-tab-btn" type="button" data-category="Vestidos Casuales">Vestidos Casuales</button>
+            <button class="category-tab-btn" type="button" data-category="Sets & Conjuntos">Sets & Conjuntos</button>
+            <button class="category-tab-btn" type="button" data-category="Sneakers & Calzado">Sneakers & Calzado</button>
+            <button class="category-tab-btn" type="button" data-category="Bolsos & Accesorios">Bolsos & Accesorios</button>
+          </nav>
+
+          <div class="catalog-search-sort-bar">
+            <div class="search-field-wrapper">
+              <span class="icon">🔍</span>
+              <input 
+                type="search" 
+                class="search-chic-input" 
+                id="catalogSearchInput" 
+                placeholder="Buscar camisa, cargo, jeans, vestido..." 
+                aria-label="Buscar prenda"
               />
             </div>
-            
-            <div class="hero-floating-card">
-              <div class="quote-title">"El look para tu día a día"</div>
-              <div class="quote-desc">Perfecta para el mall, salir a comer, el cine o una tarde con tus amigas.</div>
+
+            <div style="display: flex; align-items: center; gap: 0.75rem;">
+              <label for="catalogSortSelect" style="font-size: 0.85rem; color: var(--text-muted);">Ordenar:</label>
+              <select class="sort-chic-select" id="catalogSortSelect" aria-label="Ordenar prendas">
+                <option value="default">Predeterminado</option>
+                <option value="price-low">Precio: Menor a Mayor</option>
+                <option value="price-high">Precio: Mayor a Menor</option>
+                <option value="name-asc">Nombre (A - Z)</option>
+              </select>
             </div>
           </div>
         </div>
-      </div>
-    </section>
 
-
-    <!-- =======================================================================
-         AVISO EDITORIAL DE DISPONIBILIDAD (CRÍTICO)
-         ======================================================================= -->
-    <section class="container">
-      <div class="inquiry-editorial-banner">
-        <div class="inquiry-badge-tag">Consultar disponibilidad ✦</div>
-        <div class="inquiry-banner-text">
-          Para brindarte la mejor experiencia, <strong>no realizamos cobros automáticos en esta web ni manejamos inventario rígido</strong>. Al enviar tu lista por WhatsApp, una asesora de Somos Casual revisará tus prendas y te confirmará disponibilidad de talla y color antes de cualquier pago.
+        <!-- Grid de Productos -->
+        <div class="product-grid-chic" id="catalogProductsGrid">
+          <!-- Renderizado dinámico vía JavaScript -->
         </div>
       </div>
     </section>
 
     <!-- =======================================================================
-         CATÁLOGO COMPLETO
+         10. ¿CÓMO COMPRAR? (4 PASOS VISUALES)
          ======================================================================= -->
-    <section class="container" id="catalogo" style="padding-bottom: 5.5rem;">
-      <div class="section-editorial-header">
-        <span class="section-label">Explora Todo el Guardarropa</span>
-        <h2 class="section-headline">Nuestra <em>Colección</em></h2>
-        <p class="section-subtext" id="catalogCount">Cargando piezas...</p>
-      </div>
-
-      <!-- Barra de Categorías Casuales -->
-      <nav class="catalog-nav-bar" role="tablist" aria-label="Categorías de la colección">
-        <button class="category-tab-btn active" type="button" data-category="Todos">Todas</button>
-        <button class="category-tab-btn" type="button" data-category="Tops & Camisas">Tops & Camisas</button>
-        <button class="category-tab-btn" type="button" data-category="Jeans & Pantalones">Jeans & Pantalones</button>
-        <button class="category-tab-btn" type="button" data-category="Vestidos Casuales">Vestidos Casuales</button>
-        <button class="category-tab-btn" type="button" data-category="Sets & Conjuntos">Sets & Conjuntos</button>
-        <button class="category-tab-btn" type="button" data-category="Sneakers & Calzado">Sneakers & Calzado</button>
-        <button class="category-tab-btn" type="button" data-category="Bolsos & Accesorios">Bolsos & Accesorios</button>
-      </nav>
-
-      <!-- Barra de Búsqueda y Ordenamiento -->
-      <div class="catalog-search-sort-bar">
-        <div class="search-field-wrapper">
-          <span class="icon">🔍</span>
-          <input 
-            type="search" 
-            class="search-chic-input" 
-            id="catalogSearchInput" 
-            placeholder="Buscar por prendas, jeans, cargo, sneakers, tops..." 
-            aria-label="Buscar prenda"
-          />
-        </div>
-
-        <div style="display: flex; align-items: center; gap: 0.75rem;">
-          <label for="catalogSortSelect" style="font-size: 0.85rem; color: var(--text-muted);">Ordenar por:</label>
-          <select class="sort-chic-select" id="catalogSortSelect" aria-label="Ordenar prendas">
-            <option value="default">Predeterminado</option>
-            <option value="price-low">Precio: Menor a Mayor</option>
-            <option value="price-high">Precio: Mayor a Menor</option>
-            <option value="name-asc">Nombre (A - Z)</option>
-          </select>
-        </div>
-      </div>
-
-      <!-- Grid de Productos -->
-      <div class="product-grid-chic" id="catalogProductsGrid">
-        <!-- Renderizado dinámico vía JavaScript -->
-      </div>
-    </section>
-
-    <!-- =======================================================================
-         CÓMO FUNCIONA (EXPERIENCIA EDITORIAL ATELIER)
-         ======================================================================= -->
-    <section class="how-it-works-editorial" id="como-funciona">
+    <section class="how-to-buy-section" id="como-comprar">
       <div class="container">
-        <div class="section-editorial-header">
-          <span class="section-label">Paso a Paso</span>
-          <h2 class="section-headline">¿Cómo funciona tu <em>pedido</em>?</h2>
-          <p class="section-subtext">
-            Un proceso pensado para tu tranquilidad y un trato 100% humano.
-          </p>
+        <div class="how-to-buy-header">
+          <h2 class="how-to-buy-title">¿CÓMO COMPRAR?</h2>
+          <p class="how-to-buy-subtitle">Proceso pensado para coordinar tus prendas favoritas con total comodidad</p>
         </div>
 
-        <div class="editorial-steps-grid">
+        <div class="steps-visual-grid">
           <!-- Paso 1 -->
-          <div class="editorial-step-card">
-            <span class="step-roman-num">I.</span>
-            <h3 class="step-card-title">Elige tus prendas</h3>
-            <p class="step-card-text">
-              Navega en el catálogo, elige tu talla y color deseado y añádelas a tu pedido con un toque.
-            </p>
+          <div class="step-visual-card">
+            <div class="step-number-pill">①</div>
+            <div class="step-emoji-icon">🛍️</div>
+            <h3 class="step-headline-text">ELIGE PRODUCTOS</h3>
+            <p class="step-body-text">Elige talla y color en el catálogo.</p>
           </div>
 
           <!-- Paso 2 -->
-          <div class="editorial-step-card">
-            <span class="step-roman-num">II.</span>
-            <h3 class="step-card-title">Envía por WhatsApp</h3>
-            <p class="step-card-text">
-              Presiona "Enviar pedido por WhatsApp". Tu lista se redacta automáticamente en tu chat.
-            </p>
+          <div class="step-visual-card">
+            <div class="step-number-pill">②</div>
+            <div class="step-emoji-icon">📱</div>
+            <h3 class="step-headline-text">ENVÍA TU PEDIDO</h3>
+            <p class="step-body-text">WhatsApp recibe tu pedido preparado.</p>
           </div>
 
           <!-- Paso 3 -->
-          <div class="editorial-step-card">
-            <span class="step-roman-num">III.</span>
-            <h3 class="step-card-title">Validamos tu talla</h3>
-            <p class="step-card-text">
-              Comprobamos el stock en taller. Si una talla se agotó, te ofrecemos opciones y colores al instante.
-            </p>
+          <div class="step-visual-card">
+            <div class="step-number-pill">③</div>
+            <div class="step-emoji-icon">💬</div>
+            <h3 class="step-headline-text">CONFIRMAMOS STOCK</h3>
+            <p class="step-body-text">Verificamos disponibilidad en taller.</p>
           </div>
 
           <!-- Paso 4 -->
-          <div class="editorial-step-card">
-            <span class="step-roman-num">IV.</span>
-            <h3 class="step-card-title">Pago & Entrega</h3>
-            <p class="step-card-text">
-              Coordinamos tu método de pago preferido y preparamos tu paquete para delivery a tu dirección.
-            </p>
+          <div class="step-visual-card">
+            <div class="step-number-pill">④</div>
+            <div class="step-emoji-icon">🚚</div>
+            <h3 class="step-headline-text">RECIBE TU PEDIDO</h3>
+            <p class="step-body-text">Coordinamos pago y entrega.</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- =======================================================================
-         SOMOS CASUAL (NOSOTROS)
+         11. SECCIÓN "NOSOTROS" (FOTOGRAFÍA GRANDE + TEXTO CONCISO)
          ======================================================================= -->
-    <section class="about-atelier-section" id="somos-casual">
+    <section class="about-split-section" id="somos-casual">
       <div class="container">
-        <div class="about-atelier-grid">
-          <div class="about-atelier-images">
-            <div class="about-img-arch">
-              <img 
-                src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=80" 
-                alt="Moda femenina casual Somos Casual" 
-              />
-            </div>
+        <div class="about-split-grid">
+          <div class="about-photo-wrapper">
+            <img 
+              src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1000&q=80" 
+              alt="Prendas de vestir casuales Somos Casual" 
+              loading="lazy"
+            />
           </div>
 
-          <div class="about-copy">
-            <span class="section-label">Nuestra Filosofía</span>
-            <h2>En Somos Casual vestimos tu día a día con <em>onda y comodidad</em></h2>
-            <p>
-              Somos Casual nace para ofrecerte prendas que te hagan sentir cómoda, auténtica y lista para cualquier plan sin complicaciones: desde una salida al cine, ir al mall, cenar o andar relajada con tus amigas.
+          <div class="about-editorial-copy">
+            <span class="about-tag-label">Nosotros</span>
+            <h2 class="about-headline-title">VESTIMOS TU DÍA</h2>
+            <p class="about-paragraph-text">
+              Moda casual para sentirte cómoda, auténtica y lista para cualquier plan sin complicaciones: desde una salida al cine, ir al mall, cenar o andar relajada con tus amigas.
             </p>
-            <p>
-              Gestionamos cada pedido directamente por WhatsApp porque valoramos el trato cercano y personalizado: nos encanta orientarte sobre medidas, cómo ajusta cada prenda y sugerirte opciones de outfits según tu estilo.
-            </p>
-
-            <div class="about-chic-features">
-              <div class="about-chic-feature-item">
-                <span class="bullet">✦</span>
-                <span>Prendas frescas, cómodas y fáciles de combinar</span>
-              </div>
-              <div class="about-chic-feature-item">
-                <span class="bullet">✦</span>
-                <span>Asesoría directa en medidas y tallas por WhatsApp</span>
-              </div>
-              <div class="about-chic-feature-item">
-                <span class="bullet">✦</span>
-                <span>Empaque cuidadoso y entregas rápidas en toda República Dominicana</span>
-              </div>
-            </div>
+            <button class="btn-about-action" type="button" onclick="openDirectWhatsAppInquiry()">
+              <span>Conócenos por WhatsApp</span> 💬
+            </button>
           </div>
         </div>
       </div>
@@ -319,63 +305,63 @@
   </main>
 
   <!-- =========================================================================
-       FOOTER CHIC
+       PIE DE PÁGINA
        ========================================================================= -->
   <footer class="footer-chic">
     <div class="container">
       <div class="footer-chic-grid">
         <div>
-          <div class="brand-title" style="color: #fff; font-size: 1.5rem;">
+          <div class="footer-brand-title">
             <span class="store-name-text">SOMOS CASUAL</span>
           </div>
-          <div class="brand-subtitle" style="color: #a8948a; margin-top: 0.2rem;">SANTO DOMINGO • REPÚBLICA DOMINICANA</div>
           <p class="footer-atelier-desc">
-            Moda femenina casual para salir, andar y disfrutar. Pedidos y confirmación de stock directa por WhatsApp.
+            Moda casual femenina para salir y andar. Atención personalizada y confirmación de stock directa por WhatsApp.
           </p>
         </div>
 
         <div>
-          <div class="footer-col-title">Colección Casual</div>
+          <div class="footer-col-title">Colección</div>
           <ul class="footer-links-list">
-            <li><a href="#catalogo" onclick="APP_STATE.selectedCategory='Tops & Camisas'; renderCatalogProducts();">Tops & Camisas</a></li>
-            <li><a href="#catalogo" onclick="APP_STATE.selectedCategory='Jeans & Pantalones'; renderCatalogProducts();">Jeans & Pantalones</a></li>
-            <li><a href="#catalogo" onclick="APP_STATE.selectedCategory='Vestidos Casuales'; renderCatalogProducts();">Vestidos Casuales</a></li>
-            <li><a href="#catalogo" onclick="APP_STATE.selectedCategory='Sets & Conjuntos'; renderCatalogProducts();">Sets & Conjuntos</a></li>
-            <li><a href="#catalogo" onclick="APP_STATE.selectedCategory='Sneakers & Calzado'; renderCatalogProducts();">Sneakers & Calzado</a></li>
+            <li><a href="#catalogo" onclick="selectCategoryAndScroll('Tops & Camisas')">Tops & Camisas</a></li>
+            <li><a href="#catalogo" onclick="selectCategoryAndScroll('Jeans & Pantalones')">Jeans & Pantalones</a></li>
+            <li><a href="#catalogo" onclick="selectCategoryAndScroll('Vestidos Casuales')">Vestidos Casuales</a></li>
+            <li><a href="#catalogo" onclick="selectCategoryAndScroll('Sets & Conjuntos')">Sets & Conjuntos</a></li>
+            <li><a href="#catalogo" onclick="selectCategoryAndScroll('Sneakers & Calzado')">Sneakers & Calzado</a></li>
           </ul>
         </div>
 
         <div>
-          <div class="footer-col-title">Somos Casual</div>
+          <div class="footer-col-title">Enlaces</div>
           <ul class="footer-links-list">
             <li><a href="#hero">Inicio</a></li>
-            <li><a href="#catalogo">Colección</a></li>
-            <li><a href="#como-funciona">Cómo Funciona</a></li>
-            <li><a href="#somos-casual">Nuestra Filosofía</a></li>
+            <li><a href="#categorias">Categorías</a></li>
+            <li><a href="#catalogo">Tienda</a></li>
+            <li><a href="#como-comprar">¿Cómo comprar?</a></li>
+            <li><a href="#somos-casual">Nosotros</a></li>
             <li><a href="admin.html" style="color: #e2d5c5; font-weight: 600;">Panel Administrador 🔐</a></li>
           </ul>
         </div>
 
         <div>
           <div class="footer-col-title">Atención Personalizada</div>
-          <p style="font-size: 0.88rem; color: #bfaea5; margin-bottom: 1.25rem;">
-            ¿Dudas sobre medidas o asesoría para armar tu outfit? Escríbenos directamente:
+          <p style="font-size: 0.85rem; color: #a3968d; margin-bottom: 1.25rem;">
+            ¿Dudas sobre tallas o medidas? Escríbenos directamente:
           </p>
-          <button class="btn-chic-primary" style="padding: 0.75rem 1.4rem; font-size: 0.85rem;" onclick="openDirectWhatsAppInquiry()">
+          <button class="btn-about-action" style="padding: 0.75rem 1.4rem; font-size: 0.82rem;" onclick="openDirectWhatsAppInquiry()">
             <span>Escribir por WhatsApp</span> 💬
           </button>
         </div>
       </div>
 
       <div class="footer-bottom-bar">
-        <div>© 2025 - 2026 <span class="store-name-text">SOMOS CASUAL RD</span>. Todos los derechos reservados.</div>
-        <div>Diseñado para coordinar compras casuales vía WhatsApp ✦</div>
+        <div>© 2025 - 2026 <span class="store-name-text">SOMOS CASUAL RD</span>. Santo Domingo, República Dominicana.</div>
+        <div>Compras y confirmación ágil vía WhatsApp ✦</div>
       </div>
     </div>
   </footer>
 
   <!-- =========================================================================
-       MODAL DE DETALLE DE PRENDA (BOUTIQUE DETAIL MODAL)
+       6. MODAL DE PRODUCTO INDIVIDUAL (FICHA BOUTIQUE)
        ========================================================================= -->
   <div class="modal-backdrop" id="productModalBackdrop" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modal-chic-dialog">
@@ -384,7 +370,7 @@
       </button>
 
       <div class="modal-product-layout">
-        <!-- Galería de Fotos -->
+        <!-- Galería de Fotos (Foto Grande + Miniaturas) -->
         <div class="modal-gallery-side">
           <div class="modal-main-image-container">
             <img id="modalMainImage" src="" alt="" />
@@ -394,7 +380,7 @@
           </div>
         </div>
 
-        <!-- Información y Variantes -->
+        <!-- Ficha de Información y Variantes -->
         <div class="modal-info-side">
           <span class="modal-category-label" id="modalCategory"></span>
           <h2 class="modal-title-heading" id="modalTitle"></h2>
@@ -404,49 +390,62 @@
             <span class="modal-price-old" id="modalOriginalPrice"></span>
           </div>
 
-          <!-- AVISO OFICIAL: Consultar disponibilidad -->
-          <div class="modal-inquiry-explainer">
-            <div class="title">✦ Consultar disponibilidad</div>
-            <div class="body">
-              La confirmación real de stock y medidas ocurre por WhatsApp antes de formalizar tu pedido.
-            </div>
-          </div>
-
           <p class="modal-desc-text" id="modalDescription"></p>
 
-          <!-- Selector de Tallas -->
+          <!-- Selector de Talla -->
           <div class="variant-selection-group">
             <div class="variant-label-row">
-              <span class="variant-label-name">Talla:</span>
+              <span class="variant-label-name">Selecciona tu talla</span>
               <span class="variant-selected-value" id="modalSelectedSizeLabel"></span>
             </div>
             <div class="size-chips-container" id="modalSizeSelectorGrid">
-              <!-- Botones de talla dinámicos -->
+              <!-- Botones [ S ] [ M ] [ L ] [ XL ] -->
             </div>
           </div>
 
-          <!-- Selector de Colores -->
+          <!-- Selector de Color -->
           <div class="variant-selection-group">
             <div class="variant-label-row">
-              <span class="variant-label-name">Color:</span>
+              <span class="variant-label-name">Color</span>
               <span class="variant-selected-value" id="modalSelectedColorLabel"></span>
             </div>
             <div class="color-chips-container" id="modalColorSelectorGrid">
-              <!-- Botones de color dinámicos -->
+              <!-- Botones de colores -->
             </div>
           </div>
 
-          <!-- Cantidad y Botón Agregar -->
-          <div class="modal-actions-bar">
-            <div class="stepper-pill">
-              <button class="stepper-btn" type="button" onclick="stepModalQuantity(-1)" aria-label="Disminuir cantidad">-</button>
-              <span class="stepper-val" id="modalQtyDisplay">1</span>
-              <button class="stepper-btn" type="button" onclick="stepModalQuantity(1)" aria-label="Aumentar cantidad">+</button>
+          <!-- Selector de Cantidad -->
+          <div class="quantity-selection-group">
+            <div class="variant-label-row" style="margin-bottom: 0.4rem;">
+              <span class="variant-label-name">Cantidad</span>
             </div>
+            <div class="stepper-pill">
+              <button class="stepper-btn" type="button" onclick="stepModalQuantity(-1)" aria-label="Disminuir">-</button>
+              <span class="stepper-val" id="modalQtyDisplay">1</span>
+              <button class="stepper-btn" type="button" onclick="stepModalQuantity(1)" aria-label="Aumentar">+</button>
+            </div>
+          </div>
 
-            <button class="btn-add-order-chic" id="modalAddToCartBtn" type="button">
+          <!-- Botones de Acción -->
+          <div class="modal-actions-container">
+            <button class="btn-modal-add-order" id="modalAddToCartBtn" type="button">
               <span>AGREGAR AL PEDIDO</span>
             </button>
+
+            <div class="modal-secondary-actions-row">
+              <button class="btn-modal-fav-toggle" id="modalFavToggleBtn" type="button">
+                <span>♡</span> <span>Añadir a favoritos</span>
+              </button>
+              <button class="btn-modal-whatsapp-inquiry" id="modalWhatsAppInquiryBtn" type="button">
+                <span>💬</span> <span>Consultar por WhatsApp</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Reaseguro -->
+          <div class="modal-disclaimer-notice">
+            <span class="dot">✦</span>
+            <span>Disponibilidad confirmada por WhatsApp</span>
           </div>
         </div>
       </div>
@@ -454,26 +453,21 @@
   </div>
 
   <!-- =========================================================================
-       DRAWER LATERAL "MI PEDIDO" (SLIDE-OVER BOUTIQUE)
+       8. DRAWER LATERAL "MI PEDIDO"
        ========================================================================= -->
   <div class="drawer-backdrop" id="cartDrawerBackdrop" role="dialog" aria-modal="true" aria-labelledby="drawerTitle">
     <div class="drawer-chic-panel">
       <!-- Encabezado -->
       <div class="drawer-top-bar">
-        <h3 class="drawer-headline" id="drawerTitle">Mi Pedido</h3>
+        <h3 class="drawer-headline" id="drawerTitle">MI PEDIDO</h3>
         <button class="drawer-close-btn" id="cartDrawerCloseBtn" type="button" aria-label="Cerrar pedido">
           ✕
         </button>
       </div>
 
-      <!-- Aviso explicativo -->
-      <div class="drawer-human-notice">
-        ✦ Prepara tu lista de prendas. La confirmación de tallas y el pago se gestionan en WhatsApp.
-      </div>
-
       <!-- Contenido scrolleable -->
       <div class="drawer-scrollable-content">
-        <!-- Lista de prendas agregadas -->
+        <!-- Lista de prendas -->
         <div class="cart-items-container" id="cartItemsList">
           <!-- Renderizado dinámico vía JavaScript -->
         </div>
@@ -483,54 +477,59 @@
           <div class="icon">✨</div>
           <h3 class="serif-font">Tu bolsa está vacía</h3>
           <p>Explora nuestras prendas y añade tus piezas favoritas.</p>
-          <button class="btn-chic-primary" type="button" onclick="closeCartDrawer(); window.location.hash='#catalogo';">
+          <button class="btn-about-action" type="button" onclick="closeCartDrawer(); window.location.hash='#catalogo';">
             Ver Colección
           </button>
         </div>
 
-        <!-- Datos Opcionales de la Clienta -->
-        <div class="customer-optional-card" id="cartCustomerInfoBox">
-          <h4>Tus Datos (Opcional)</h4>
-          <input 
-            type="text" 
-            class="chic-input" 
-            id="cartCustomerName" 
-            placeholder="Tu Nombre (Ej. Laura Sánchez)"
-            aria-label="Tu nombre"
-          />
-          <input 
-            type="text" 
-            class="chic-input" 
-            id="cartCustomerCity" 
-            placeholder="Ciudad / Sector (Ej. Santo Domingo, Piantini)"
-            aria-label="Tu ciudad o sector"
-          />
-          <input 
-            type="text" 
-            class="chic-input" 
-            id="cartCustomerNotes" 
-            placeholder="Nota o consulta (Ej. ¿Tienen talla M por si acaso?)"
-            aria-label="Nota o consulta"
-          />
+        <!-- Datos Opcionales (Acordeón discreto sin fricción) -->
+        <div class="cart-optional-accordion" id="cartCustomerInfoBox" style="display: none;">
+          <button class="cart-optional-toggle" type="button" onclick="document.getElementById('optionalFieldsWrap').classList.toggle('active')">
+            <span>+ Agregar datos de entrega (opcional)</span>
+            <span>▾</span>
+          </button>
+          <div class="cart-optional-fields" id="optionalFieldsWrap" style="display: flex;">
+            <input 
+              type="text" 
+              class="chic-input" 
+              id="cartCustomerName" 
+              placeholder="Tu Nombre (Ej. Laura Sánchez)"
+              aria-label="Tu nombre"
+            />
+            <input 
+              type="text" 
+              class="chic-input" 
+              id="cartCustomerCity" 
+              placeholder="Ciudad o Sector (Ej. Piantini, Santo Domingo)"
+              aria-label="Tu ciudad"
+            />
+            <input 
+              type="text" 
+              class="chic-input" 
+              id="cartCustomerNotes" 
+              placeholder="Nota o consulta (Ej. Prefiero entrega por la tarde)"
+              aria-label="Nota o consulta"
+            />
+          </div>
         </div>
 
-        <!-- Previsualización del mensaje exacto de WhatsApp -->
-        <div class="preview-whatsapp-accordion" id="cartPreviewBox">
-          <div class="preview-toggle-header" id="togglePreviewAccordion">
-            <span>Ver mensaje exacto que se enviará</span>
-            <span class="arrow">▼</span>
-          </div>
+        <!-- Previsualización Oculta del Mensaje de WhatsApp (usado por JS) -->
+        <div id="cartPreviewBox" style="display: none;">
           <div id="whatsappPreviewContent" style="display: none;">
-            <div class="preview-rendered-box" id="whatsappPreviewText"></div>
+            <div id="whatsappPreviewText"></div>
           </div>
         </div>
       </div>
 
-      <!-- Pie del Pedido con Total y Botón de WhatsApp -->
+      <!-- Pie del Pedido -->
       <div class="drawer-footer-zone">
         <div class="total-summary-line">
-          <span class="total-summary-label">TOTAL:</span>
+          <span class="total-summary-label">Subtotal</span>
           <span class="total-summary-price" id="cartTotalAmount">RD$0</span>
+        </div>
+
+        <div class="cart-stock-notice">
+          La disponibilidad será confirmada por WhatsApp.
         </div>
 
         <!-- BOTÓN PRINCIPAL DE WHATSAPP -->
@@ -538,122 +537,73 @@
           <span>ENVIAR PEDIDO POR WHATSAPP</span> 💬
         </button>
 
-        <button class="btn-keep-browsing" id="keepBrowsingBtn" type="button">
-          Continuar viendo la colección
-        </button>
+        <!-- Reaseguro de Pago Directo -->
+        <div class="cart-payment-disclaimer">
+          <strong>🔒 No realizamos pagos en línea.</strong>
+          El pago se coordina directamente con la tienda.
+        </div>
       </div>
     </div>
   </div>
 
   <!-- =========================================================================
-       DRAWER LATERAL "MI ESPACIO" (PANEL DE LA CLIENTA)
+       9. DRAWER LATERAL "MIS FAVORITOS Y PEDIDOS" (SIMPLIFICADO)
        ========================================================================= -->
   <div class="client-drawer-backdrop" id="clientDrawerBackdrop" role="dialog" aria-modal="true" aria-labelledby="clientDrawerTitle">
     <div class="client-drawer-panel">
       <!-- Encabezado -->
       <div class="client-drawer-header">
         <div class="client-drawer-title-area">
-          <h3 id="clientDrawerTitle">Mi Espacio</h3>
-          <p>Tus datos de entrega, favoritos y pedidos</p>
+          <h3 id="clientDrawerTitle">Mi Selección</h3>
         </div>
-        <button class="drawer-close-btn" id="closeClientPanelBtn" type="button" aria-label="Cerrar mi espacio">✕</button>
+        <button class="drawer-close-btn" id="closeClientPanelBtn" type="button" aria-label="Cerrar panel">✕</button>
       </div>
 
-      <!-- Barra de Pestañas -->
+      <!-- 2 Pestañas Simplificadas -->
       <div class="client-tabs-nav">
         <button class="client-tab-btn active" type="button" data-tab="clientTabFavorites">
-          Mis Favoritos (<span class="client-fav-count">0</span>)
-        </button>
-        <button class="client-tab-btn" type="button" data-tab="clientTabProfile">
-          Datos de Entrega
+          ❤️ Mis favoritos (<span class="client-fav-count">0</span>)
         </button>
         <button class="client-tab-btn" type="button" data-tab="clientTabOrders">
-          Mis Pedidos
+          📋 Mis pedidos
         </button>
       </div>
 
-      <!-- Contenido con scroll -->
+      <!-- Contenido -->
       <div class="client-tab-content-zone">
         <!-- Pestaña 1: Favoritos -->
         <div class="client-tab-pane active" id="clientTabFavorites">
           <div id="clientWishlistContainer"></div>
-          <div class="cart-empty-msg" id="clientWishlistEmpty" style="display: none; padding: 2.5rem 1rem; text-align: center;">
-            <div class="icon" style="font-size: 2.5rem; margin-bottom: 0.5rem;">♡</div>
+          <div class="cart-empty-msg" id="clientWishlistEmpty" style="display: none; padding: 3rem 1rem;">
+            <div class="icon">♡</div>
             <h4 class="serif-font" style="font-size: 1.25rem;">Aún no tienes favoritos</h4>
             <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.4rem;">
-              Pulsa el corazón en cualquier prenda del catálogo para guardarla aquí.
+              Pulsa el corazón en cualquier prenda para guardarla en tu lista.
             </p>
           </div>
         </div>
 
-        <!-- Pestaña 2: Datos de Entrega -->
-        <div class="client-tab-pane" id="clientTabProfile">
-          <form id="clientProfileForm">
-            <div class="client-form-group">
-              <label for="clientNameInput">Tu Nombre Completo</label>
-              <input type="text" class="chic-input" id="clientNameInput" placeholder="Ej. Laura Sánchez" required />
-            </div>
-
-            <div class="client-form-group">
-              <label for="clientPhoneInput">Teléfono / WhatsApp</label>
-              <input type="tel" class="chic-input" id="clientPhoneInput" placeholder="Ej. 809-555-0123" />
-              <span class="client-form-help">Para coordinar la confirmación y entrega</span>
-            </div>
-
-            <div class="client-form-group">
-              <label for="clientCityInput">Sector y Ciudad (República Dominicana)</label>
-              <input type="text" class="chic-input" id="clientCityInput" placeholder="Ej. Piantini, Santo Domingo" required />
-            </div>
-
-            <div class="client-form-group">
-              <label for="clientSizeInput">Talla Habitual de Ropa</label>
-              <input type="text" class="chic-input" id="clientSizeInput" placeholder="Ej. Talla M / Pantalón 34" />
-            </div>
-
-            <div class="client-form-group">
-              <label for="clientNotesInput">Preferencias o Referencias de Entrega</label>
-              <textarea class="chic-input" id="clientNotesInput" rows="2" placeholder="Ej. Edificio Torre Bella, apto 4B. Entregar por la tarde."></textarea>
-            </div>
-
-            <button type="submit" class="btn-chic-primary" style="width: 100%; justify-content: center; margin-top: 0.5rem;">
-              Guardar Mis Datos
-            </button>
-            <span class="client-form-help" style="text-align: center; margin-top: 0.75rem;">
-              ✦ Estos datos se cargarán automáticamente al enviar tu pedido por WhatsApp.
-            </span>
-          </form>
-        </div>
-
-        <!-- Pestaña 3: Historial de Pedidos -->
+        <!-- Pestaña 2: Historial de Pedidos -->
         <div class="client-tab-pane" id="clientTabOrders">
           <div id="clientOrdersContainer"></div>
-          <div class="cart-empty-msg" id="clientOrdersEmpty" style="display: none; padding: 2.5rem 1rem; text-align: center;">
-            <div class="icon" style="font-size: 2.5rem; margin-bottom: 0.5rem;">🛍️</div>
+          <div class="cart-empty-msg" id="clientOrdersEmpty" style="display: none; padding: 3rem 1rem;">
+            <div class="icon">📋</div>
             <h4 class="serif-font" style="font-size: 1.25rem;">No tienes pedidos registrados</h4>
             <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.4rem;">
-              Cuando envíes un pedido por WhatsApp, quedará registrado aquí.
+              Cuando envíes un pedido por WhatsApp, quedará guardado aquí.
             </p>
           </div>
         </div>
-      </div>
-
-      <!-- Pie del Drawer -->
-      <div class="client-drawer-footer">
-        <button class="btn-chic-primary" type="button" style="width: 100%; justify-content: center; background: #25d366; border-color: #25d366;" onclick="openDirectWhatsAppInquiry()">
-          <span>Hablar con mi asesora</span> 💬
-        </button>
       </div>
     </div>
   </div>
 
-
-
   <!-- =========================================================================
-       BOTÓN FLOTANTE CHIC DE WHATSAPP
+       7. BOTÓN FLOTANTE PERMANENTE DE WHATSAPP
        ========================================================================= -->
   <button class="floating-whatsapp-chic" type="button" title="Consultar por WhatsApp" aria-label="Consultar por WhatsApp" onclick="openDirectWhatsAppInquiry()">
-    <span>💬</span>
-    <span class="text">¿Dudas con tu talla? Escríbenos</span>
+    <span class="icon">💬</span>
+    <span class="whatsapp-btn-text">WhatsApp</span>
   </button>
 
   <!-- Notificaciones Toast -->

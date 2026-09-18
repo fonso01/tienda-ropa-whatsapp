@@ -1,184 +1,140 @@
 /* ==========================================================================
-   HERO EDITORIAL
-   Portada estilo revista, marco fotográfico en arco y pilares de confianza
+   HERO VISUAL EDITORIAL - SOMOS CASUAL
+   Fotografía grande ocupando la primera pantalla, minimalismo y alta estética
    ========================================================================== */
-.hero-editorial {
-  padding: 3rem 0 4.5rem;
-}
 
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: 3.5rem;
-  align-items: center;
-}
-
-.hero-copy {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.hero-tagline {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  font-size: 0.82rem;
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--accent-terracotta);
-  margin-bottom: 1.25rem;
-}
-
-.hero-headline {
-  font-size: clamp(2.4rem, 4.5vw, 4.2rem);
-  font-weight: 400;
-  line-height: 1.12;
-  margin-bottom: 1.5rem;
-}
-
-.hero-headline em {
-  font-style: italic;
-  font-weight: 400;
-  color: var(--accent-terracotta);
-}
-
-.hero-description {
-  font-size: 1.05rem;
-  color: var(--text-muted);
-  line-height: 1.7;
-  max-width: 520px;
-  margin-bottom: 2.25rem;
-}
-
-.hero-action-row {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-}
-
-.btn-chic-primary {
-  background-color: var(--text-main);
-  color: #fff;
-  font-size: 0.92rem;
-  font-weight: 500;
-  letter-spacing: 0.05em;
-  padding: 0.95rem 2.2rem;
-  border-radius: var(--radius-pill);
-  display: inline-flex;
-  align-items: center;
-  gap: 0.65rem;
-  transition: all var(--transition-fast);
-}
-
-.btn-chic-primary:hover {
-  background-color: var(--accent-terracotta);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(168, 88, 69, 0.25);
-}
-
-.btn-chic-link {
-  font-size: 0.92rem;
-  font-weight: 500;
-  color: var(--text-main);
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 0;
-  border-bottom: 1px solid var(--text-main);
-  transition: all var(--transition-fast);
-}
-
-.btn-chic-link:hover {
-  color: var(--accent-terracotta);
-  border-color: var(--accent-terracotta);
-}
-
-.hero-visual {
+.hero-visual-section {
   position: relative;
-}
-
-.hero-image-frame {
-  position: relative;
-  border-radius: 180px 180px 24px 24px; /* Forma de arco orgánico chic */
+  width: 100%;
+  height: calc(90vh - 72px);
+  min-height: 520px;
+  max-height: 850px;
   overflow: hidden;
-  box-shadow: var(--shadow-floating);
-  aspect-ratio: 3/4;
+  background-color: #1a1a1a;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
 }
 
-.hero-image-frame img {
+/* Imagen de Fondo de Alta Definición */
+.hero-visual-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-visual-bg img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.8s ease;
+  object-position: center 25%;
+  filter: brightness(0.92);
+  transform: scale(1.02);
+  transition: transform 1.2s ease;
 }
 
-.hero-image-frame:hover img {
-  transform: scale(1.04);
+.hero-visual-section:hover .hero-visual-bg img {
+  transform: scale(1.05);
 }
 
-.hero-floating-card {
+/* Degradado sutil para legibilidad cinematográfica */
+.hero-visual-overlay {
   position: absolute;
-  bottom: 2rem;
-  left: -2rem;
-  background: rgba(255, 255, 255, 0.96);
-  backdrop-filter: blur(10px);
-  padding: 1.15rem 1.5rem;
-  border-radius: var(--radius-md);
-  border: 1px solid var(--border-delicate);
-  box-shadow: var(--shadow-card);
-  max-width: 250px;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.08) 0%,
+    rgba(0, 0, 0, 0.15) 50%,
+    rgba(20, 20, 20, 0.65) 100%
+  );
 }
 
-.hero-floating-card .quote-title {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-size: 1.05rem;
-  color: var(--text-main);
-  margin-bottom: 0.25rem;
-}
-
-.hero-floating-card .quote-desc {
-  font-size: 0.78rem;
-  color: var(--text-muted);
-  line-height: 1.4;
-}
-
-/* 3 Pilares sutiles */
-.hero-pillars-bar {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  margin-top: 4rem;
-  padding-top: 2.5rem;
-  border-top: 1px solid var(--border-delicate);
-}
-
-.pillar-item {
+/* Contenido Editorial Flotante */
+.hero-content-box {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  color: #ffffff;
+  padding: 0 1.5rem 4rem;
+  max-width: 780px;
+  margin: 0 auto;
   display: flex;
-  align-items: flex-start;
-  gap: 1rem;
+  flex-direction: column;
+  align-items: center;
 }
 
-.pillar-bullet {
-  font-size: 1.1rem;
-  color: var(--accent-terracotta);
-  line-height: 1;
-  margin-top: 0.2rem;
+.hero-label-top {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: #f3ece5;
+  margin-bottom: 0.85rem;
+  opacity: 0.9;
 }
 
-.pillar-text h4 {
+.hero-title-main {
+  font-family: var(--font-serif);
+  font-size: clamp(2.4rem, 5.5vw, 4.4rem);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1.08;
+  margin-bottom: 0.75rem;
+  color: #ffffff;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.25);
+}
+
+.hero-subtitle-clean {
+  font-family: var(--font-sans);
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-weight: 400;
+  color: #f0ece7;
+  letter-spacing: 0.02em;
+  margin-bottom: 2rem;
+  max-width: 480px;
+}
+
+.btn-hero-cta {
+  background-color: #ffffff;
+  color: var(--text-main);
   font-family: var(--font-sans);
   font-size: 0.92rem;
   font-weight: 600;
-  color: var(--text-main);
-  margin-bottom: 0.2rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 1.05rem 2.8rem;
+  border-radius: var(--radius-pill);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  transition: all var(--transition-fast);
+  text-decoration: none;
 }
 
-.pillar-text p {
-  font-size: 0.82rem;
-  color: var(--text-muted);
-  line-height: 1.45;
+.btn-hero-cta:hover {
+  background-color: var(--btn-dark);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .hero-visual-section {
+    height: calc(85vh - 64px);
+    min-height: 480px;
+  }
+
+  .hero-content-box {
+    padding-bottom: 3rem;
+  }
+
+  .btn-hero-cta {
+    padding: 0.9rem 2.2rem;
+    font-size: 0.85rem;
+  }
 }

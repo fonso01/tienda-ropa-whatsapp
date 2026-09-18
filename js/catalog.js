@@ -84,14 +84,16 @@ function resetCatalogFilters() {
 }
 
 function createProductCardHtml(product) {
+  const secondaryImg = (product.gallery && product.gallery[1]) ? product.gallery[1] : product.image;
   return `
     <article class="product-item-card" data-id="${product.id}">
       <div class="product-img-box">
         ${product.tag ? `<span class="product-chic-badge">${product.tag}</span>` : ''}
         <button class="product-fav-btn" data-product-id="${product.id}" type="button" onclick="toggleProductFavorite('${product.id}', event)" aria-label="Añadir a favoritos">♡</button>
-        <img src="${product.image}" alt="${product.name}" loading="lazy" />
+        <img class="product-img-primary" src="${product.image}" alt="${product.name}" loading="lazy" />
+        <img class="product-img-secondary" src="${secondaryImg}" alt="${product.name} - segunda foto" loading="lazy" />
         <button class="product-quick-hover-btn" type="button" data-action="open-detail" data-id="${product.id}">
-          <span>Ver Talla & Detalles</span> →
+          <span>Ver producto</span>
         </button>
       </div>
 
@@ -102,12 +104,21 @@ function createProductCardHtml(product) {
           <span class="product-price-rd">${formatCurrencyRD(product.price)}</span>
           ${product.originalPrice ? `<span class="product-price-prev">${formatCurrencyRD(product.originalPrice)}</span>` : ''}
         </div>
-        
-        <!-- Estado Oficial Requerido: Consultar disponibilidad -->
-        <span class="product-inquiry-status">Consultar disponibilidad</span>
       </div>
     </article>
   `;
+}
+
+function selectCategoryAndScroll(categoryName) {
+  APP_STATE.selectedCategory = categoryName;
+  document.querySelectorAll('.category-tab-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.category.toLowerCase() === categoryName.toLowerCase());
+  });
+  renderCatalogProducts();
+  const catalogEl = document.getElementById('catalogo');
+  if (catalogEl) {
+    catalogEl.scrollIntoView({ behavior: 'smooth' });
+  }
 }
 
 function attachProductCardEvents(container) {

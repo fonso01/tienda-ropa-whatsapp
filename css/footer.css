@@ -1,146 +1,219 @@
 /* ==========================================================================
-   SECCIONES FINALES, FOOTER, BOTÓN FLOTANTE Y RESPONSIVE
+   SECCIÓN ¿CÓMO COMPRAR?, NOSOTROS, FOOTER & WHATSAPP FLOTANTE
+   Puntos 7, 10 y 11: 4 pasos visuales, Nosotros split 50/50 y botón WhatsApp
    ========================================================================== */
 
 /* ==========================================================================
-   CÓMO FUNCIONA
+   10. ¿CÓMO COMPRAR? (4 PASOS VISUALES)
    ========================================================================== */
-.how-it-works-editorial {
+.how-to-buy-section {
   padding: 5.5rem 0;
   background-color: var(--bg-warm);
+  border-top: 1px solid var(--border-delicate);
+  border-bottom: 1px solid var(--border-delicate);
 }
 
-.editorial-steps-grid {
+.how-to-buy-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.how-to-buy-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 3.4vw, 2.75rem);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-main);
+  margin-bottom: 0.5rem;
+}
+
+.how-to-buy-subtitle {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+.steps-visual-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
 }
 
-.editorial-step-card {
+.step-visual-card {
+  background: var(--bg-surface);
+  border-radius: var(--radius-md);
+  padding: 2.25rem 1.5rem;
+  text-align: center;
   display: flex;
   flex-direction: column;
-  position: relative;
+  align-items: center;
+  box-shadow: var(--shadow-subtle);
+  border: 1px solid var(--border-delicate);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
 }
 
-.step-roman-num {
+.step-visual-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card);
+}
+
+.step-number-pill {
   font-family: var(--font-serif);
-  font-size: 1.5rem;
-  font-style: italic;
-  color: var(--accent-terracotta);
+  font-size: 1.4rem;
+  color: var(--accent-soft);
   margin-bottom: 0.75rem;
+  line-height: 1;
 }
 
-.step-card-title {
-  font-family: var(--font-serif);
-  font-size: 1.25rem;
-  font-weight: 500;
+.step-emoji-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  line-height: 1;
+}
+
+.step-headline-text {
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-main);
   margin-bottom: 0.5rem;
 }
 
-.step-card-text {
-  font-size: 0.85rem;
+.step-body-text {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
   color: var(--text-muted);
-  line-height: 1.55;
+  line-height: 1.5;
 }
 
 /* ==========================================================================
-   EL ATELIER (HISTORIA Y VALORES)
+   11. SECCIÓN "NOSOTROS" (SPLIT 50/50 CON FOTO GRANDE)
    ========================================================================== */
-.about-atelier-section {
-  padding: 5.5rem 0;
+.about-split-section {
+  padding: 6rem 0;
 }
 
-.about-atelier-grid {
+.about-split-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 4rem;
+  gap: 4.5rem;
   align-items: center;
 }
 
-.about-atelier-images {
+.about-photo-wrapper {
   position: relative;
-}
-
-.about-img-arch {
-  border-radius: 200px 200px 16px 16px;
+  aspect-ratio: 4 / 5;
+  border-radius: var(--radius-lg);
   overflow: hidden;
-  box-shadow: var(--shadow-card);
-  aspect-ratio: 3/4;
+  box-shadow: var(--shadow-floating);
+  background-color: var(--bg-warm);
 }
 
-.about-img-arch img {
+.about-photo-wrapper img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.8s ease;
 }
 
-.about-copy h2 {
-  font-size: clamp(2rem, 3.5vw, 2.75rem);
-  line-height: 1.2;
-  margin-bottom: 1.5rem;
+.about-photo-wrapper:hover img {
+  transform: scale(1.03);
 }
 
-.about-copy p {
-  font-size: 0.98rem;
-  color: var(--text-muted);
-  line-height: 1.7;
-  margin-bottom: 1.5rem;
-}
-
-.about-chic-features {
+.about-editorial-copy {
   display: flex;
   flex-direction: column;
-  gap: 0.85rem;
-  margin-top: 1.75rem;
+  align-items: flex-start;
 }
 
-.about-chic-feature-item {
-  display: flex;
-  align-items: center;
-  gap: 0.85rem;
-  font-size: 0.9rem;
+.about-tag-label {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent-soft);
+  margin-bottom: 0.75rem;
+}
+
+.about-headline-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.2rem, 3.8vw, 3.2rem);
+  font-weight: 500;
+  line-height: 1.15;
   color: var(--text-main);
+  margin-bottom: 1.25rem;
 }
 
-.about-chic-feature-item span.bullet {
-  color: var(--accent-terracotta);
+.about-paragraph-text {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  max-width: 480px;
+}
+
+.btn-about-action {
+  background-color: var(--btn-dark);
+  color: #ffffff;
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.95rem 2.2rem;
+  border-radius: var(--radius-pill);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.btn-about-action:hover {
+  background-color: var(--btn-dark-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-card);
 }
 
 /* ==========================================================================
-   PIE DE PÁGINA (CHIC & REFINED)
+   PIE DE PÁGINA REFINADO
    ========================================================================== */
 .footer-chic {
-  background-color: #1e1817;
-  color: #ede2db;
-  padding: 5rem 0 2.5rem;
-}
-
-.footer-chic a {
-  color: #bfaea5;
-}
-
-.footer-chic a:hover {
-  color: #ffffff;
+  background-color: #1a1a1a;
+  color: #d1c7bd;
+  padding: 4.5rem 0 2rem;
 }
 
 .footer-chic-grid {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1.5fr;
   gap: 3.5rem;
-  margin-bottom: 3.5rem;
+  margin-bottom: 3rem;
+}
+
+.footer-brand-title {
+  font-family: var(--font-serif);
+  color: #ffffff;
+  font-size: 1.45rem;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
 }
 
 .footer-atelier-desc {
-  font-size: 0.88rem;
+  font-size: 0.85rem;
   line-height: 1.6;
-  color: #bfaea5;
-  margin-top: 1rem;
+  color: #a3968d;
   max-width: 320px;
 }
 
 .footer-col-title {
   font-family: var(--font-serif);
-  font-size: 1.15rem;
+  font-size: 1.05rem;
   font-weight: 500;
   color: #ffffff;
   margin-bottom: 1.25rem;
@@ -150,54 +223,70 @@
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
-  font-size: 0.88rem;
+  font-size: 0.85rem;
+}
+
+.footer-links-list a {
+  color: #a3968d;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.footer-links-list a:hover {
+  color: #ffffff;
 }
 
 .footer-bottom-bar {
   padding-top: 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 0.82rem;
-  color: #9c8980;
+  font-size: 0.8rem;
+  color: #8c7f76;
   flex-wrap: wrap;
   gap: 1rem;
 }
 
 /* ==========================================================================
-   BOTÓN FLOTANTE DE WHATSAPP Y NOTIFICACIONES
+   7. BOTÓN FLOTANTE PERMANENTE DE WHATSAPP
+   Desktop: [ 💬 WhatsApp ] | Móvil: [ 💬 ]
    ========================================================================== */
 .floating-whatsapp-chic {
   position: fixed;
   bottom: 2rem;
   right: 2rem;
   background-color: var(--whatsapp-green);
-  color: #fff;
+  color: #ffffff;
   border-radius: var(--radius-pill);
   padding: 0.85rem 1.4rem;
   display: flex;
   align-items: center;
   gap: 0.65rem;
-  font-size: 0.88rem;
-  font-weight: 600;
-  box-shadow: 0 6px 25px rgba(31, 167, 83, 0.35);
-  z-index: 99;
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  box-shadow: 0 6px 25px rgba(37, 211, 102, 0.4);
+  z-index: 1500;
+  border: none;
+  cursor: pointer;
   transition: all var(--transition-fast);
 }
 
 .floating-whatsapp-chic:hover {
   background-color: var(--whatsapp-hover);
   transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 10px 30px rgba(31, 167, 83, 0.45);
+  box-shadow: 0 10px 30px rgba(37, 211, 102, 0.5);
 }
 
+/* Notificaciones Toast */
 .toast-chic-container {
   position: fixed;
   bottom: 2rem;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 500;
+  z-index: 3000;
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
@@ -205,8 +294,8 @@
 }
 
 .toast-chic-alert {
-  background: var(--text-main);
-  color: #fff;
+  background: var(--btn-dark);
+  color: #ffffff;
   padding: 0.85rem 1.6rem;
   border-radius: var(--radius-pill);
   box-shadow: var(--shadow-card);
@@ -229,38 +318,23 @@
 }
 
 /* ==========================================================================
-   RESPONSIVE DESIGN
+   RESPONSIVO
    ========================================================================== */
 @media (max-width: 992px) {
-  .hero-grid {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-  }
-  
-  .hero-visual {
-    max-width: 420px;
-    margin: 0 auto;
-  }
-  
-  .hero-pillars-bar {
-    grid-template-columns: 1fr;
+  .steps-visual-grid {
+    grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
   }
 
-  .modal-product-layout {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    padding: 2rem;
-  }
-
-  .editorial-steps-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-  }
-
-  .about-atelier-grid {
+  .about-split-grid {
     grid-template-columns: 1fr;
     gap: 2.5rem;
+  }
+
+  .about-photo-wrapper {
+    max-width: 460px;
+    margin: 0 auto;
+    width: 100%;
   }
 
   .footer-chic-grid {
@@ -269,18 +343,10 @@
   }
 }
 
-@media (max-width: 680px) {
-  .nav-links {
-    display: none;
-  }
-
-  .product-grid-chic {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem 1rem;
-  }
-
-  .editorial-steps-grid {
+@media (max-width: 640px) {
+  .steps-visual-grid {
     grid-template-columns: 1fr;
+    gap: 1rem;
   }
 
   .footer-chic-grid {
@@ -288,15 +354,23 @@
     gap: 2rem;
   }
 
-  .floating-whatsapp-chic span.text {
+  /* Botón de WhatsApp flotante en Móvil: Círculo [ 💬 ] */
+  .floating-whatsapp-chic {
+    width: 56px;
+    height: 56px;
+    padding: 0;
+    border-radius: 50%;
+    justify-content: center;
+    bottom: 1.5rem;
+    right: 1.5rem;
+  }
+
+  .floating-whatsapp-chic span.whatsapp-btn-text {
     display: none;
   }
 
-  .floating-whatsapp-chic {
-    width: 52px;
-    height: 52px;
-    padding: 0;
-    justify-content: center;
-    border-radius: 50%;
+  .floating-whatsapp-chic span.icon {
+    font-size: 1.5rem;
+    line-height: 1;
   }
 }

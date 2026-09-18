@@ -5,30 +5,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
 
 :root {
-  /* Paleta Femenina Cálida & Orgánica */
-  --bg-main: #fcf9f5;             /* Crema cálido marfil de fondo */
-  --bg-surface: #ffffff;          /* Blanco seda para tarjetas */
-  --bg-warm: #f6efe8;             /* Tono arena/champagne suave */
-  --bg-warm-hover: #ede2d8;
-  --bg-overlay: rgba(36, 28, 26, 0.65);
+  /* Paleta Boutique Femenina Cálida & Minimalista */
+  --bg-main: #F8F6F2;             /* Crema cálido / blanco roto refinado */
+  --bg-surface: #ffffff;          /* Blanco seda para tarjetas y dialogos */
+  --bg-warm: #f2ece4;             /* Tono arena muy suave para fondos secundarios */
+  --bg-warm-hover: #ebe3d9;
+  --bg-overlay: rgba(26, 26, 26, 0.65);
 
-  --text-main: #241c1a;           /* Café espresso profundo y elegante */
-  --text-muted: #786964;          /* Tono topo suave */
-  --text-light: #9e8f8a;          /* Tono lino sutil */
+  --text-main: #1E1E1E;           /* Negro contemporáneo refinado */
+  --text-muted: #777777;          /* Gris neutro suave */
+  --text-light: #999999;          /* Tono sutil para detalles */
   --text-inverse: #ffffff;
 
-  /* Acentos de Color */
-  --accent-terracotta: #a85845;   /* Terracota elegante / blush profundo */
-  --accent-terracotta-hover: #8f4736;
-  --accent-gold: #c89d58;         /* Dorado envejecido / champagne */
-  --accent-rose-soft: #faebe5;    /* Rosa empolvado tenue */
-  --border-delicate: #e8ded6;     /* Borde delicado natural */
-  --border-focus: #a85845;
+  /* Acentos y Botones */
+  --btn-dark: #1E1E1E;            /* Botón negro clásico boutique */
+  --btn-dark-hover: #333333;
+  --accent-soft: #C9A98A;         /* Acento camel / nude muy suave */
+  --accent-soft-hover: #b89675;
+  --accent-soft-bg: rgba(201, 169, 138, 0.12);
+  --border-delicate: #E8E3DC;     /* Borde delicado natural */
+  --border-focus: #1E1E1E;
 
   /* WhatsApp Oficial Integrado con Estilo */
-  --whatsapp-green: #1fa753;
-  --whatsapp-hover: #178943;
-  --whatsapp-soft: #ebf8f0;
+  --whatsapp-green: #25D366;
+  --whatsapp-hover: #20ba59;
+  --whatsapp-dark: #128C7E;
+  --whatsapp-soft: #f0fbf4;
   --whatsapp-border: #bbf0cf;
 
   /* Tipografía */
@@ -36,15 +38,16 @@
   --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
 
   /* Sombras Suaves */
-  --shadow-subtle: 0 4px 20px rgba(78, 55, 45, 0.04);
-  --shadow-card: 0 10px 30px rgba(78, 55, 45, 0.06);
-  --shadow-floating: 0 18px 45px rgba(60, 42, 35, 0.12);
+  --shadow-subtle: 0 4px 18px rgba(0, 0, 0, 0.03);
+  --shadow-card: 0 8px 24px rgba(0, 0, 0, 0.05);
+  --shadow-floating: 0 20px 45px rgba(0, 0, 0, 0.12);
 
-  /* Curvas Suaves */
+  /* Curvas Refinadas */
+  --radius-xs: 4px;
   --radius-sm: 8px;
-  --radius-md: 16px;
-  --radius-lg: 24px;
-  --radius-pill: 100px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-pill: 999px;
 
   --transition-smooth: 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
   --transition-fast: 0.2s ease;

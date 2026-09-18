@@ -124,11 +124,11 @@ function renderWishlistItems() {
         <h4 class="fav-item-name">${p.name}</h4>
         <div class="fav-item-price">${typeof formatCurrencyRD === 'function' ? formatCurrencyRD(p.price) : 'RD$' + p.price}</div>
         <div class="fav-actions-row">
-          <button type="button" class="btn-chic-primary" style="padding: 0.4rem 0.8rem; font-size: 0.75rem;" onclick="openProductModal('${p.id}'); closeClientPanel();">
-            Ver & Elegir Talla
+          <button type="button" class="btn-fav-view" onclick="openProductModal('${p.id}'); closeClientPanel();">
+            Ver prenda
           </button>
-          <button type="button" class="btn-icon-minimal" style="color: #991b1b; font-size: 0.85rem;" onclick="toggleProductFavorite('${p.id}')" title="Quitar">
-            🗑
+          <button type="button" class="btn-fav-remove" onclick="toggleProductFavorite('${p.id}')" title="Quitar de favoritos">
+            ✕ Quitar
           </button>
         </div>
       </div>
@@ -176,8 +176,17 @@ function initClientPanel() {
   const form = document.getElementById('clientProfileForm');
 
   if (openBtn) {
-    openBtn.addEventListener('click', () => openClientPanel());
+    openBtn.addEventListener('click', () => openClientPanel('clientTabFavorites'));
   }
+
+  const headerFavBtn = document.getElementById('headerFavBtn');
+  if (headerFavBtn) {
+    headerFavBtn.addEventListener('click', () => openClientPanel('clientTabFavorites'));
+  }
+
+  document.querySelectorAll('[data-action="open-favorites"]').forEach(btn => {
+    btn.addEventListener('click', () => openClientPanel('clientTabFavorites'));
+  });
 
   if (closeBtn) {
     closeBtn.addEventListener('click', closeClientPanel);

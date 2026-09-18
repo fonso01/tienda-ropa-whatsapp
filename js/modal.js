@@ -1,6 +1,7 @@
 /**
- * SOMOS CASUAL - Módulo del Modal de Detalle de Prenda
- * Visualización de la prenda, cambio de fotos, selector de tallas y colores, stepper y agregar al pedido.
+ * SOMOS CASUAL - Módulo del Modal de Detalle de Prenda (Ficha Boutique)
+ * Visualización de la prenda, fotos secundarias, selectores de talla/color,
+ * stepper, agregar al pedido, favoritos directos y consulta por WhatsApp.
  */
 
 function initModalEvents() {
@@ -19,12 +20,28 @@ function initModalEvents() {
     if (e.key === 'Escape') {
       closeProductModal();
       if (typeof closeCartDrawer === 'function') closeCartDrawer();
+      if (typeof closeClientPanel === 'function') closeClientPanel();
       if (typeof closeSettingsModal === 'function') closeSettingsModal();
     }
   });
 
   const addBtn = document.getElementById('modalAddToCartBtn');
   if (addBtn) addBtn.addEventListener('click', handleModalAddToCart);
+
+  const favBtn = document.getElementById('modalFavToggleBtn');
+  if (favBtn) {
+    favBtn.addEventListener('click', () => {
+      if (APP_STATE.modalProduct && typeof toggleProductFavorite === 'function') {
+        toggleProductFavorite(APP_STATE.modalProduct.id);
+        updateModalFavoriteButton();
+      }
+    });
+  }
+
+  const waBtn = document.getElementById('modalWhatsAppInquiryBtn');
+  if (waBtn) {
+    waBtn.addEventListener('click', handleModalWhatsAppInquiry);
+  }
 }
 
 function openProductModal(productId) {
@@ -73,6 +90,7 @@ function openProductModal(productId) {
   renderSizeSelectors(product);
   renderColorSelectors(product);
   updateModalQuantityDisplay();
+  updateModalFavoriteButton();
 
   const backdrop = document.getElementById('productModalBackdrop');
   backdrop.classList.add('active');
@@ -88,6 +106,7 @@ function closeProductModal() {
 function renderSizeSelectors(product) {
   const container = document.getElementById('modalSizeSelectorGrid');
   const label = document.getElementById('modalSelectedSizeLabel');
+  if (!container) return;
   container.innerHTML = '';
 
   product.sizes.forEach(size => {
@@ -97,19 +116,20 @@ function renderSizeSelectors(product) {
     btn.textContent = size;
     btn.addEventListener('click', () => {
       APP_STATE.modalSelectedSize = size;
-      label.textContent = size;
+      if (label) label.textContent = size;
       container.querySelectorAll('.size-chic-btn').forEach(b => b.classList.remove('selected'));
       btn.classList.add('selected');
     });
     container.appendChild(btn);
   });
 
-  label.textContent = APP_STATE.modalSelectedSize;
+  if (label) label.textContent = APP_STATE.modalSelectedSize;
 }
 
 function renderColorSelectors(product) {
   const container = document.getElementById('modalColorSelectorGrid');
   const label = document.getElementById('modalSelectedColorLabel');
+  if (!container) return;
   container.innerHTML = '';
 
   product.colors.forEach(color => {
@@ -122,14 +142,14 @@ function renderColorSelectors(product) {
     `;
     btn.addEventListener('click', () => {
       APP_STATE.modalSelectedColor = color.name;
-      label.textContent = color.name;
+      if (label) label.textContent = color.name;
       container.querySelectorAll('.color-chic-btn').forEach(b => b.classList.remove('selected'));
       btn.classList.add('selected');
     });
     container.appendChild(btn);
   });
 
-  label.textContent = APP_STATE.modalSelectedColor;
+  if (label) label.textContent = APP_STATE.modalSelectedColor;
 }
 
 function updateModalQuantityDisplay() {
@@ -143,6 +163,25 @@ function stepModalQuantity(delta) {
     APP_STATE.modalQuantity = newQty;
     updateModalQuantityDisplay();
   }
+}
+
+function updateModalFavoriteButton() {
+  const btn = document.getElementById('modalFavToggleBtn');
+  if (!btn || !APP_STATE.modalProduct) return;
+  const list = typeof getClientWishlist === 'function' ? getClientWishlist() : [];
+  const isFav = list.includes(APP_STATE.modalProduct.id);
+  btn.classList.toggle('active', isFav);
+  btn.innerHTML = isFav ? '<span>❤️</span> <span>En favoritos</span>' : '<span>♡</span> <span>Añadir a favoritos</span>';
+}
+
+function handleModalWhatsAppInquiry() {
+  if (!APP_STATE.modalProduct) return;
+  const phone = (APP_STATE.whatsappNumber || '18095550199').replace(/[^0-9]/g, '');
+  const p = APP_STATE.modalProduct;
+  const size = APP_STATE.modalSelectedSize || 'Única';
+  const color = APP_STATE.modalSelectedColor || 'Estándar';
+  const text = `Hola SOMOS CASUAL, quisiera consultar disponibilidad de la prenda *${p.name}* en talla *${size}* y color *${color}* (Precio: ${formatCurrencyRD(p.price)}).`;
+  window.open(`https://wa.me/${phone}?text=${encodeURIComponent(text)}`, '_blank');
 }
 
 function handleModalAddToCart() {

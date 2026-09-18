@@ -1,96 +1,164 @@
 /* ==========================================================================
-   CATÁLOGO Y TARJETAS DE PRODUCTO
-   Pestañas de categorías, buscador, ordenación y fichas de prendas
+   SECCIÓN EXPLORA CATEGORÍAS & CATÁLOGO DE PRODUCTOS
+   Mejoras 3, 4 y 5: Categorías inmediatas, tarjetas 4:5 y hover de segunda foto
    ========================================================================== */
-.section-editorial-header {
-  margin-bottom: 2.75rem;
-  text-align: center;
-  max-width: 640px;
-  margin-left: auto;
-  margin-right: auto;
+
+/* ==========================================================================
+   3. SECCIÓN: EXPLORA LA COLECCIÓN (CATEGORÍAS VISUALES)
+   ========================================================================== */
+.categories-showcase-section {
+  padding: 4.5rem 0 3.5rem;
 }
 
-.section-label {
+.categories-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.categories-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 3.2vw, 2.5rem);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-main);
+}
+
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1.25rem;
+}
+
+.category-visual-card {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  cursor: pointer;
+  background-color: var(--bg-warm);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  box-shadow: var(--shadow-subtle);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.category-visual-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card);
+}
+
+.category-visual-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.category-visual-card:hover .category-visual-img {
+  transform: scale(1.06);
+}
+
+.category-visual-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.1) 60%, transparent 100%);
+  transition: background 0.3s ease;
+}
+
+.category-visual-card:hover .category-visual-overlay {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.15) 60%, transparent 100%);
+}
+
+.category-visual-name {
+  position: relative;
+  z-index: 2;
+  color: #ffffff;
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding-bottom: 1.25rem;
+  text-align: center;
+  transition: transform var(--transition-fast);
+}
+
+.category-visual-card:hover .category-visual-name {
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   4 y 5. CATÁLOGO: NUEVA COLECCIÓN & TARJETAS 4:5
+   ========================================================================== */
+.catalog-section {
+  padding: 3.5rem 0 5.5rem;
+}
+
+.catalog-editorial-header {
+  text-align: center;
+  margin-bottom: 2.75rem;
+}
+
+.catalog-badge-pre {
+  font-family: var(--font-sans);
   font-size: 0.78rem;
   font-weight: 600;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--accent-terracotta);
+  color: var(--accent-soft);
   display: block;
+  margin-bottom: 0.4rem;
+}
+
+.catalog-headline {
+  font-family: var(--font-serif);
+  font-size: clamp(2.2rem, 3.8vw, 3rem);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--text-main);
+  line-height: 1.15;
   margin-bottom: 0.5rem;
 }
 
-.section-headline {
-  font-size: clamp(2rem, 3.5vw, 2.75rem);
-  font-weight: 400;
-  line-height: 1.2;
-  margin-bottom: 0.75rem;
-}
-
-.section-headline em {
-  font-style: italic;
-}
-
-.section-subtext {
+.catalog-subtext {
+  font-family: var(--font-sans);
   font-size: 0.95rem;
   color: var(--text-muted);
+  letter-spacing: 0.02em;
 }
 
-/* ==========================================================================
-   AVISO SOBRE DISPONIBILIDAD (TRANSPARENTE Y ORGÁNICO)
-   ========================================================================== */
-.inquiry-editorial-banner {
-  background-color: var(--bg-warm);
-  border: 1px solid var(--border-delicate);
-  border-radius: var(--radius-md);
-  padding: 1.4rem 2rem;
-  margin: 3.5rem 0;
+/* Barra de Filtros y Búsqueda */
+.catalog-controls-bar {
   display: flex;
-  align-items: center;
+  flex-direction: column;
   gap: 1.5rem;
+  margin-bottom: 2.75rem;
 }
 
-.inquiry-badge-tag {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-size: 1.25rem;
-  color: var(--accent-terracotta);
-  white-space: nowrap;
-}
-
-.inquiry-banner-text {
-  font-size: 0.88rem;
-  color: var(--text-muted);
-  line-height: 1.55;
-}
-
-.inquiry-banner-text strong {
-  color: var(--text-main);
-  font-weight: 600;
-}
-
-/* ==========================================================================
-   FILTROS Y CATEGORÍAS
-   ========================================================================== */
 .catalog-nav-bar {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
   flex-wrap: wrap;
-  margin-bottom: 2rem;
 }
 
 .category-tab-btn {
   background: transparent;
   color: var(--text-muted);
-  padding: 0.55rem 1.2rem;
+  padding: 0.5rem 1.15rem;
   border-radius: var(--radius-pill);
-  font-size: 0.88rem;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
   font-weight: 500;
   letter-spacing: 0.02em;
   transition: all var(--transition-fast);
   border: 1px solid transparent;
+  cursor: pointer;
 }
 
 .category-tab-btn:hover {
@@ -99,17 +167,15 @@
 }
 
 .category-tab-btn.active {
-  background-color: var(--text-main);
-  color: #fff;
-  font-weight: 500;
+  background-color: var(--btn-dark);
+  color: #ffffff;
 }
 
 .catalog-search-sort-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1.5rem;
-  margin-bottom: 2.5rem;
+  gap: 1rem;
   padding-bottom: 1.25rem;
   border-bottom: 1px solid var(--border-delicate);
   flex-wrap: wrap;
@@ -118,13 +184,13 @@
 .search-field-wrapper {
   position: relative;
   flex: 1;
-  min-width: 250px;
-  max-width: 400px;
+  min-width: 260px;
+  max-width: 420px;
 }
 
 .search-field-wrapper span.icon {
   position: absolute;
-  left: 1rem;
+  left: 1.1rem;
   top: 50%;
   transform: translateY(-50%);
   color: var(--text-light);
@@ -136,14 +202,16 @@
   background-color: var(--bg-surface);
   border: 1px solid var(--border-delicate);
   border-radius: var(--radius-pill);
-  padding: 0.65rem 1rem 0.65rem 2.6rem;
-  font-size: 0.88rem;
+  padding: 0.65rem 1rem 0.65rem 2.75rem;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
   color: var(--text-main);
-  transition: border-color var(--transition-fast);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 .search-chic-input:focus {
   border-color: var(--text-main);
+  box-shadow: 0 0 0 2px rgba(30, 30, 30, 0.05);
 }
 
 .sort-chic-select {
@@ -151,7 +219,8 @@
   border: 1px solid var(--border-delicate);
   border-radius: var(--radius-pill);
   padding: 0.6rem 1.25rem;
-  font-size: 0.85rem;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
   color: var(--text-main);
   cursor: pointer;
   transition: border-color var(--transition-fast);
@@ -162,12 +231,12 @@
 }
 
 /* ==========================================================================
-   TARJETAS DE PRENDAS
+   GRID DE PRODUCTOS Y TARJETAS 4:5
    ========================================================================== */
 .product-grid-chic {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
-  gap: 2.5rem 1.75rem;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 2.75rem 1.75rem;
 }
 
 .product-item-card {
@@ -175,29 +244,84 @@
   flex-direction: column;
   position: relative;
   cursor: pointer;
+  background: transparent;
+  transition: transform var(--transition-fast);
 }
 
+/* Contenedor de Fotografía 4:5 con cambio al Hover */
 .product-img-box {
   position: relative;
   width: 100%;
-  aspect-ratio: 3/4;
+  aspect-ratio: 4 / 5;
   background-color: var(--bg-warm);
   border-radius: var(--radius-md);
   overflow: hidden;
-  margin-bottom: 1.15rem;
+  margin-bottom: 1rem;
 }
 
-.product-img-box img {
+/* Foto Primaria */
+.product-img-primary {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
   transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-.product-item-card:hover .product-img-box img {
-  transform: scale(1.04);
+/* Foto Secundaria (Hover Swap) */
+.product-img-secondary {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.45s ease, transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+  z-index: 1;
 }
 
+.product-item-card:hover .product-img-secondary {
+  opacity: 1;
+}
+
+.product-item-card:hover .product-img-primary,
+.product-item-card:hover .product-img-secondary {
+  transform: scale(1.03);
+}
+
+/* Botón Favorito ♡ en la esquina superior derecha */
+.product-fav-btn {
+  position: absolute;
+  top: 0.85rem;
+  right: 0.85rem;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  color: var(--text-main);
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 5;
+  transition: all var(--transition-fast);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.product-fav-btn:hover {
+  transform: scale(1.1);
+  background: #ffffff;
+}
+
+.product-fav-btn.active {
+  color: #e11d48;
+  background: #ffffff;
+}
+
+/* Etiqueta de Colección (opcional) */
 .product-chic-badge {
   position: absolute;
   top: 0.85rem;
@@ -205,27 +329,31 @@
   background: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(6px);
   color: var(--text-main);
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  padding: 0.35rem 0.75rem;
+  padding: 0.3rem 0.7rem;
   border-radius: var(--radius-pill);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  z-index: 4;
 }
 
+/* Botón Flotante al Pasar el Mouse: "Ver producto" */
 .product-quick-hover-btn {
   position: absolute;
   bottom: 0.85rem;
   left: 0.85rem;
   right: 0.85rem;
-  background: rgba(255, 255, 255, 0.96);
-  color: var(--text-main);
+  background: rgba(30, 30, 30, 0.92);
+  backdrop-filter: blur(8px);
+  color: #ffffff;
   border-radius: var(--radius-pill);
-  padding: 0.65rem 1rem;
+  padding: 0.7rem 1rem;
+  font-family: var(--font-sans);
   font-size: 0.82rem;
   font-weight: 600;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.06em;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -234,6 +362,8 @@
   transform: translateY(8px);
   transition: all var(--transition-fast);
   box-shadow: var(--shadow-card);
+  z-index: 5;
+  border: none;
 }
 
 .product-item-card:hover .product-quick-hover-btn {
@@ -241,68 +371,55 @@
   transform: translateY(0);
 }
 
+.product-quick-hover-btn:hover {
+  background: #000000;
+}
+
+/* Información de la Prenda */
 .product-info-box {
   display: flex;
   flex-direction: column;
 }
 
 .product-item-category {
-  font-size: 0.75rem;
-  letter-spacing: 0.12em;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--text-light);
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.25rem;
 }
 
 .product-item-name {
   font-family: var(--font-serif);
-  font-size: 1.18rem;
+  font-size: 1.12rem;
   font-weight: 500;
   color: var(--text-main);
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.35rem;
   line-height: 1.3;
   transition: color var(--transition-fast);
 }
 
 .product-item-card:hover .product-item-name {
-  color: var(--accent-terracotta);
+  color: var(--btn-dark);
 }
 
 .product-item-price-row {
   display: flex;
   align-items: baseline;
   gap: 0.65rem;
-  margin-bottom: 0.5rem;
 }
 
 .product-price-rd {
+  font-family: var(--font-sans);
   font-size: 1.05rem;
   font-weight: 600;
   color: var(--text-main);
 }
 
 .product-price-prev {
-  font-size: 0.88rem;
+  font-size: 0.85rem;
   color: var(--text-light);
   text-decoration: line-through;
-}
-
-/* Indicador de Disponibilidad Elegante */
-.product-inquiry-status {
-  font-size: 0.78rem;
-  color: var(--accent-terracotta);
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  font-style: italic;
-  font-family: var(--font-serif);
-}
-
-.product-inquiry-status::before {
-  content: '✦';
-  font-style: normal;
-  font-size: 0.75rem;
-  color: var(--accent-gold);
 }
 
 /* Estado de catálogo vacío */
@@ -313,4 +430,36 @@
   background-color: var(--bg-surface);
   border-radius: var(--radius-md);
   border: 1px dashed var(--border-delicate);
+}
+
+/* Responsivo para Categorías y Catálogo */
+@media (max-width: 992px) {
+  .categories-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .categories-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.85rem;
+  }
+
+  .product-grid-chic {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem 0.85rem;
+  }
+
+  .product-item-name {
+    font-size: 0.98rem;
+  }
+
+  .product-price-rd {
+    font-size: 0.95rem;
+  }
+
+  /* En móvil, mantener botón Ver producto siempre accesible o mediante toque */
+  .product-quick-hover-btn {
+    display: none;
+  }
 }

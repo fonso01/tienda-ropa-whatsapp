@@ -77,7 +77,8 @@ const DEFAULT_PRODUCTS_DATA = [
     tag: 'Favorito',
     image: 'https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=800&q=80',
     gallery: [
-      'https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=800&q=80'
+      'https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1582418702059-97ebafb35d09?auto=format&fit=crop&w=800&q=80'
     ],
     description: 'Denim suave con ajuste favorecedor en la cintura y pierna ancha relajada. El pantalón comodín que transforma una camiseta básica en un look para salir a cenar.',
     sizes: ['32', '34', '36', '38'],
@@ -96,7 +97,8 @@ const DEFAULT_PRODUCTS_DATA = [
     tag: 'Esencial',
     image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80',
     gallery: [
-      'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80'
+      'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=800&q=80'
     ],
     description: 'Top sin mangas en algodón acanalado suave de doble capa. No transparenta, se adapta a tu cuerpo y queda increíble con jeans altos o shorts.',
     sizes: ['S', 'M', 'L'],
@@ -116,7 +118,8 @@ const DEFAULT_PRODUCTS_DATA = [
     tag: 'Casual Chic',
     image: 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=80',
     gallery: [
-      'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=80'
+      'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=800&q=80'
     ],
     description: 'Vestido corto de tejido elástico canalé con cuello redondo. Póntelo con tus tenis para el día o agrégale una chaqueta y botas para la noche.',
     sizes: ['S', 'M', 'L'],
@@ -136,7 +139,8 @@ const DEFAULT_PRODUCTS_DATA = [
     tag: 'Look Completo',
     image: 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=800&q=80',
     gallery: [
-      'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=800&q=80'
+      'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=800&q=80'
     ],
     description: 'Conjunto de dos piezas para resolver tu outfit en 1 minuto: sobrecamisa relajada con botones y short de tiro alto con pretina elástica y bolsillos.',
     sizes: ['S', 'M', 'L'],
@@ -156,7 +160,8 @@ const DEFAULT_PRODUCTS_DATA = [
     tag: 'Tercera Pieza',
     image: 'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=800&q=80',
     gallery: [
-      'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=800&q=80'
+      'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=800&q=80'
     ],
     description: 'Sobrecamisa de denim ligero corte boyfriend. El toque que completa cualquier look para tardes de cine, centro comercial o salir a comer.',
     sizes: ['S', 'M', 'L', 'XL'],
@@ -175,7 +180,8 @@ const DEFAULT_PRODUCTS_DATA = [
     tag: 'Imprescindible',
     image: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=800&q=80',
     gallery: [
-      'https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=800&q=80'
+      'https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=800&q=80'
     ],
     description: 'Body moldeador suave con escote cuadrado que resalta el escote. Cierre inferior con broches ajustables. No se sale del pantalón al andar.',
     sizes: ['S', 'M', 'L'],
@@ -195,7 +201,8 @@ const DEFAULT_PRODUCTS_DATA = [
     tag: 'Práctica',
     image: 'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=800&q=80',
     gallery: [
-      'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=800&q=80'
+      'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=800&q=80'
     ],
     description: 'Bolso bandolera de tamaño ideal para llevar teléfono, llaves, billetera y labial con las manos libres mientras caminas o sales.',
     sizes: ['Única'],
@@ -215,7 +222,8 @@ const DEFAULT_PRODUCTS_DATA = [
     tag: 'Detalle Street',
     image: 'https://images.unsplash.com/photo-1588850561407-ed78c282e89b?auto=format&fit=crop&w=800&q=80',
     gallery: [
-      'https://images.unsplash.com/photo-1588850561407-ed78c282e89b?auto=format&fit=crop&w=800&q=80'
+      'https://images.unsplash.com/photo-1588850561407-ed78c282e89b?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1521369909029-2afed882baee?auto=format&fit=crop&w=800&q=80'
     ],
     description: 'Gorra de algodón suave con lavado vintage y hebilla metálica ajustable. El accesorio preferido para un look relajado de fin de semana.',
     sizes: ['Única (Ajustable)'],
@@ -235,7 +243,8 @@ const DEFAULT_PRODUCTS_DATA = [
     tag: 'Para Caminar',
     image: 'https://images.unsplash.com/photo-1560343090-f0409e92791a?auto=format&fit=crop&w=800&q=80',
     gallery: [
-      'https://images.unsplash.com/photo-1560343090-f0409e92791a?auto=format&fit=crop&w=800&q=80'
+      'https://images.unsplash.com/photo-1560343090-f0409e92791a?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=800&q=80'
     ],
     description: 'Sandalias de suela gruesa acolchada y tiras ajustables. Ganas altura sin sacrificar la comodidad al caminar y salir de tarde.',
     sizes: ['36', '37', '38', '39', '40'],
@@ -281,7 +290,7 @@ function getStoreSettings() {
       whatsappNumber: '18095550199',
       announcementText: 'Envíos a todo el país • Atención personalizada y confirmación de tallas vía WhatsApp',
       adminPin: '1234',
-      isStoreClosed: true,
+      isStoreClosed: false,
       maintenanceMessage: 'Estamos preparando nuestra nueva colección casual para salir y andar. Muy pronto disponible.'
     };
   }
@@ -291,7 +300,7 @@ function getStoreSettings() {
     whatsappNumber: localStorage.getItem('somos_casual_whatsapp_number') || '18095550199',
     announcementText: localStorage.getItem('somos_casual_announcement') || 'Envíos a todo el país • Atención personalizada y confirmación de tallas vía WhatsApp',
     adminPin: localStorage.getItem('somos_casual_admin_pin') || '1234',
-    isStoreClosed: localStorage.getItem('somos_casual_is_closed') !== 'false', // Por defecto TRUE (Privada)
+    isStoreClosed: localStorage.getItem('somos_casual_is_closed') === 'true', // Por defecto FALSE (Abierta comercialmente)
     maintenanceMessage: localStorage.getItem('somos_casual_maintenance_msg') || 'Estamos preparando nuestra nueva colección casual para salir y andar. Muy pronto disponible.'
   };
 }

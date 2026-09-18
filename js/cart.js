@@ -172,15 +172,14 @@ function renderCartItems() {
         <div class="cart-item-meta">
           <h4 class="cart-item-name">${item.name}</h4>
           <div class="cart-item-specs">
-            <span>Talla: <strong>${item.size}</strong></span>
-            <span>Color: <strong>${item.color}</strong></span>
+            ${item.size} · ${item.color}
           </div>
           <div class="cart-item-bottom-row">
-            <span class="cart-item-price-sum">${formatCurrencyRD(itemTotal)}</span>
+            <span class="cart-item-price-calc">${item.quantity} × ${formatCurrencyRD(item.price)}</span>
             <div class="cart-stepper-mini">
-              <button type="button" onclick="modifyCartItemQty(${index}, -1)">-</button>
+              <button type="button" onclick="modifyCartItemQty(${index}, -1)" aria-label="Disminuir">-</button>
               <span>${item.quantity}</span>
-              <button type="button" onclick="modifyCartItemQty(${index}, 1)">+</button>
+              <button type="button" onclick="modifyCartItemQty(${index}, 1)" aria-label="Aumentar">+</button>
             </div>
           </div>
         </div>
